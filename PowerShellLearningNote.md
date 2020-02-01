@@ -1,6 +1,6 @@
 # 文件及文件夹操作
 ## Windows
-### PowerShell VS VBScript
+### PowerShell & VBScript
    * 搜索文件夹及文件的方法
    * 批量删除文件及文件夹的操作
    * 批量替换文件及文件夹的操作
