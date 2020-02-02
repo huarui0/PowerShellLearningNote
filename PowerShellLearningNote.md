@@ -8,6 +8,7 @@
    * 批量替换文件内容的操作
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
+         - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/)<br>
 ### 知识点总结
    * 如何传递参数（parameters）
       + 参考
