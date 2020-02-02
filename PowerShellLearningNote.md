@@ -45,7 +45,17 @@
              Config = A B C
              Country = 中国
             ```
-      2. Use the PowerShell with -file argument
+      2. Use only the PowerShell without -file argument
+         + 命令格式
+         ```shell
+             PowerShell .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
+         ```
+         ```shell
+             E:\Notes\4_ComputeCourse\PowerShell\Script>powershell .\test1.ps1 -x 'hello world' -y 'my friend'
+             hello world
+             my friend
+         ```
+      3. Use the PowerShell with -file argument
          + 命令格式
          ```shell
              PowerShell .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
