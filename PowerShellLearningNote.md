@@ -58,7 +58,10 @@
       3. Use the PowerShell with -file argument
          + 命令格式
          ```shell
-             PowerShell .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
+             PowerShell -file .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
+         ```
+         ```shell
+             powershell -file test.ps1 -x "hello world" -y "my friend"
          ```
          + 结果如下：
          ```shell
@@ -69,10 +72,36 @@
              Config = A
              Country = 中国
          ```
-      3. 通过批处理文件执行PowerShell脚本的方法：（因时间的关系，脚本执行结果有错，后续更正，但，方法就是这样的）
-         - 参考
+      3. 通过批处理文件执行PowerShell脚本的方法：- Create a .bat wrapper with the following content（因时间的关系，脚本执行结果有错，后续更正，但，方法就是这样的） 
+         + 参考
             * [How to pass batch file variables to PowerShell script? [duplicate]](https://stackoverflow.com/questions/56961935/how-to-pass-batch-file-variables-to-powershell-script)<br>
-         - 测试文件位置
+         + 测试文件位置 - Sample 1
+            * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\test1.ps1
+            ```shell
+               # test1.ps1
+               param(
+                   $x = "",
+                   $y = ""
+               )
+
+               &echo $x $y
+            ```
+            * 批处理文件（bat)：E:\Notes\4_ComputeCourse\PowerShell\Script\test.bat
+            ```shell
+               @rem test.bat
+               @powershell -file test.ps1 %1 %2 %3 %4
+            ```
+         + 命令格式 - And then call it:  - 调用命令的格式
+         ```shell
+             test.bat -x "hello world" -y "my friend"
+         ```
+         + 结果如下：
+         ```shell
+             E:\Notes\4_ComputeCourse\PowerShell\Script>test.bat -x "hello world" -y "my friend"
+             hello world
+             my friend
+         ```
+         + 测试文件位置 - Sample 2
             * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
             ```shell
                ## Script: UpdateTool.ps1
@@ -111,6 +140,22 @@
 
                %_PSCMD% 2>&1 >> "_LOG_FILE"
             ```
+         + 命令格式
+         ```shell
+             PowerShell -file .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
+         ```
+         ```shell
+             powershell -file test.ps1 -x "hello world" -y "my friend"
+         ```
+         + 结果如下：
+         ```shell
+             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
+             Config = A
+             Country = B
+             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
+             Config = A
+             Country = 中国
+         ```
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
