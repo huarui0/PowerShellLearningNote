@@ -52,7 +52,7 @@
                 Config = A
                 Country = 中国
             ```
-         3. 通过批处理文件执行PowerShell脚本的方法：
+         3. 通过批处理文件执行PowerShell脚本的方法：（因时间的关系，脚本执行结果有错，后续更正，但，方法就是这样的）
             - 测试文件位置
                * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
                ```shell
