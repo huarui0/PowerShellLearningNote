@@ -31,8 +31,27 @@
              $newString = "bar"
              .\organizer.ps1 -csvFile $hostfile -outputPath $outFile
          ```
+      + 注意：**单引号与双引号的区别**
    * 如何流程控制(Flow Control Statements)
-   
+   * 脚本执行模式
+      + 方式 1
+         1. .\TestQuotes.ps1 -Config "A B C" 或者  .\TestQuotes.ps1 -Config 'A B C'
+            - 结果如下：
+            ```shell
+                PS E:\Notes\4_ComputeCourse\PowerShell\Script>  .\TestQuotes.ps1 -Config 'A B C' -Country '中国’
+                Config = A B C
+                Country = 中国
+            ```
+         2. PowerShell .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
+            - 结果如下：
+            ```shell
+                PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
+                Config = A
+                Country = B
+                PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
+                Config = A
+                Country = 中国
+            ```
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
