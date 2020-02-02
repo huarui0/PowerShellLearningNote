@@ -1,7 +1,15 @@
 # Windows
 ## PowerShell & VBScript
 ### 文件及文件夹操作
+   * 官网参考
+      + [Get-ChildItem](Get-ChildItem)<br>
    * 搜索文件夹及文件的方法
+   * 批量拷贝复制文件和文件夹的操作
+      + 参考
+         - [How to Copy Folder Structure without Copying the Files](https://www.winhelponline.com/blog/how-to-copy-folder-structure-without-copying-files/)<br>
+         - [Copying Directory Structures without Files](https://cects.com/copying-directory-structures-without-files/)<br>
+         - [Windows: How to Copy Folder Structure without Copying Files](https://sumtips.com/software/windows-how-to-copy-folder-structure-without-copying-files/)<br>
+         - []()<br>
    * 批量删除文件及文件夹的操作
    * 批量替换文件及文件夹的操作
    * 批量移动文件夹和文件的操作
