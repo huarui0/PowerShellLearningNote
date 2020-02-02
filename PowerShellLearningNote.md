@@ -53,6 +53,8 @@
                 Country = 中国
             ```
          3. 通过批处理文件执行PowerShell脚本的方法：（因时间的关系，脚本执行结果有错，后续更正，但，方法就是这样的）
+            - 参考
+               * [How to pass batch file variables to PowerShell script? [duplicate]](https://stackoverflow.com/questions/56961935/how-to-pass-batch-file-variables-to-powershell-script)<br>
             - 测试文件位置
                * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
                ```shell
