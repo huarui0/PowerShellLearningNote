@@ -54,7 +54,7 @@
             ```
          3. 通过批处理文件执行PowerShell脚本的方法：
             - 测试文件位置
-               * E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
+               * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
                ```shell
                   ## Script: UpdateTool.ps1
                   # 
@@ -69,6 +69,29 @@
                   )
 
                   "This is $oName"
+               ```
+               * 批处理文件（bat)：E:\Notes\4_ComputeCourse\PowerShell\Script\Test_BatchFile_updateTool.bat
+               ```vbscript
+                  @(
+                     SETLOCAL ENABLEDELAYEDEXPANSION
+                     ECHO OFF
+
+                     SET "_PSScript=E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1"
+                     REM SET "_DebugPreference=Continue"
+                     SET "_DebugPreference=SilentlyContinue"
+
+                     SET "_LOG_FILE=GDGAGnklasj;oks;fk;dkf lkl;"
+                     SET "_oName=Name"
+                     SET "_oStart=%YYYY%%MM%%DD% %TIME: =0%"
+                     SET /a "_Status=0"
+                     SET "_oEnd=%YYYY%%MM%%DD% %TIME: =0%" 
+                     SET "_oDateRan=%YYYY%%MM%%DD%"
+                  )
+
+                  SET "_PSCMD=Powershell "%_PSScript%" -DebugPreference "%_DebugPreference%" -LOG_FILE "%_LOG_FILE%" -oName "%_oName%" -oStart "%_oStart%" -Status %_Status% -oEnd "%_oEnd%" -oDateRan "%_oDateRan%" "
+
+
+                  %_PSCMD% 2>&1 >> "_LOG_FILE"
                ```
 ### 高级操作
    * 参考
