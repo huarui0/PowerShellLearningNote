@@ -1,5 +1,48 @@
 # Windows
 ## PowerShell & VBScript
+   * 参考
+      + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
+      + [Powershell 编写和运行脚本](https://www.pstips.net/powershell-create-and-start-scripts.html) - 参考其中的几个方法<br>
+      + [从零开始——PowerShell应用入门（全例子入门讲解）](https://www.cnblogs.com/lavender000/p/6935589.html)<br>
+   * 重要提示
+      + 查询命令用法
+      ```shell
+           Get-Command -Verb Get
+           Get-Command -Noun Variable
+           Remove-Variable -Name * -Force -ErrorAction SilentlyContinue
+      ```
+      + 脚本执行权限 - 执行脚本前，需要设置为，执行完应该
+         - 命令格式
+            * 查询当前执行策略
+            ```shell
+                Get-ExecutionPolicy
+            ```
+            * 执行脚本前，需要设置为：Unrestricted
+            ```shell
+                Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+            ```
+            * 执行完脚本，设置为：Restricted
+            ```shell
+                Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Restricted
+            ```
+            * 其他权限，需要研究，比如，远程权限等等。
+            ```shell
+                Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+            ```
+      + 如何执行命令
+         - 如何在外部调用PowerShell脚本
+         ```shell
+         
+         ```
+         - 如何获知最后执行命令的状态：$lastExitCode：数字型变量，返回最后脚本或应用程序执行返回的退出码或出错级别：，$?：布尔型变量，返回最后执行命令的成功还是失败：
+         ```shell
+             $LastExitCode
+             $?
+         ```
+         - 如何操作使用管理控制台历史命令
+         >在PowerShell窗口中，按上下箭头键可以寻找历史命令进行调用，也可以运行Get-History命令查找，用Invoke-History Id方式进行调用：
+         - 如何记录PowerShell会话全文
+         >如果想生成当前会话的记录，可以运行Start-Transcript命令，它基于当前系统时间。如果想停止，运行Stop-Transcript：
 ### 文件及文件夹操作
    * 官网参考
       + [Get-ChildItem](Get-ChildItem)<br>
