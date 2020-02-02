@@ -56,6 +56,11 @@
    * 批量删除文件及文件夹的操作
    * 批量替换文件及文件夹的操作
    * 批量移动文件夹和文件的操作
+   * 批量重命名文件夹或文件的操作
+      + 参考
+         - [vbs + PowerShell 对文件批量重命名](https://zhuanlan.zhihu.com/p/76023063)<br>
+         - [求助一个批量修改子文件夹中文件名的批处理文件](http://www.bathome.net/thread-53039-1-1.html) - 其中提供的vbs的方法<br>
+         - [vbs批量修改文件名](https://blog.csdn.net/u011668104/article/details/52240018)<br>
    * 批量替换文件内容的操作
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
@@ -67,7 +72,7 @@
          1. 直接替换文件内容
             - 步骤
             
-         2. 建立临时文件，修改后，替换原来文件。注：替换前，更改文件名称，或复制一个。
+         2. 建立临时文件，修改后，替换原来文件。注：替换前，重命名文件（更改文件名称），或复制一个。
             - 步骤
 ### 知识点总结
    * 如何传递参数（parameters）
