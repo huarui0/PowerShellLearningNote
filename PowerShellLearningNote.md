@@ -9,6 +9,7 @@
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
          - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/)<br>
+         - [Replace string in PowerShell Script using Get-Content and Set-Content](https://social.technet.microsoft.com/Forums/windowsserver/en-US/db2b9342-70b0-4577-b87c-d666f2b40c35/replace-string-in-powershell-script-using-getcontent-and-setcontent?forum=winserverpowershell)<br>
 ### 知识点总结
    * 如何传递参数（parameters）
       + 参考
