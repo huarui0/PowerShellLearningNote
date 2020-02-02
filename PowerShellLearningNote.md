@@ -55,6 +55,7 @@
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
+      + [How to pass parameters to the script while calling them inside the provisioner](https://stackoverflow.com/questions/54587146/how-to-pass-parameters-to-the-script-while-calling-them-inside-the-provisioner) - provisioner 不知是啥，后续学习<br>
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
