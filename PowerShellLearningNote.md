@@ -21,7 +21,7 @@
 ### 知识点总结
    * 如何传递参数（parameters）
       + 参考
-         - []()<br>
+         - [How do I pass in a string with spaces into PowerShell?](https://stackoverflow.com/questions/28311191/how-do-i-pass-in-a-string-with-spaces-into-powershell)<br>
       + 方法
          1. 通过变量
          ```powershell
@@ -32,7 +32,19 @@
              .\organizer.ps1 -csvFile $hostfile -outputPath $outFile
          ```
       + 注意：**单引号与双引号的区别**
-   * 如何流程控制(Flow Control Statements)
+   * 如何循环和流程控制(Looping and Flow Control)
+      + 参考
+         - [Windows PowerShell Cookbook, 3rd Edition by Lee Holmes](https://www.oreilly.com/library/view/windows-powershell-cookbook/9781449359195/ch04.html)<br>
+         - [5 Flow control in scripts](https://livebook.manning.com/book/windows-powershell-in-action-third-edition/chapter-5/v-16/1) - 不错的书<br>
+   * PowerShell functions
+      + 参考
+         - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
+   * PowerShell modules
+      + 参考
+         - [Use the PowerApps PowerShell modules to automate tasks with the Microsoft Power Platform](https://blog.atwork.at/post/Use-PowerApps-PowerShells)<br>
+   * Automation of tasks with PowerShell
+      + 参考
+        - [Automation of tasks with PowerShell](https://docs.microsoft.com/en-us/power-platform/admin/wp-task-automation-powershell)<br>     
    * 脚本执行模式
       1. Use single quotes or double quotes - 在PowerShell App中或Cmd终端中适用
          + 命令格式：
