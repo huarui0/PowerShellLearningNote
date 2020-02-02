@@ -31,7 +31,7 @@
              $newString = "bar"
              .\organizer.ps1 -csvFile $hostfile -outputPath $outFile
          ```
-   * 如何流程和循环控制
+   * 如何流程控制(Flow Control Statements)
    
 ### 高级操作
    * 参考
