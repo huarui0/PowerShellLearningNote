@@ -52,6 +52,24 @@
                 Config = A
                 Country = 中国
             ```
+         3. 通过批处理文件执行PowerShell脚本的方法：
+            - 测试文件位置
+               * E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
+               ```shell
+                  ## Script: UpdateTool.ps1
+                  # 
+                  param(
+                      [String]$LOG_FILE = 'E:\Notes\4_ComputeCourse\PowerShell\Script\TestFolder\default.log',
+                      [String]$oName = 'default name',
+                      [String]$oStart = $(Get-date -F "yyyyMMdd HH:mm:ss.ms"),
+                      [Int]$oStatus = 0,
+                      [String]$oEnd = $(Get-date -F "yyyyMMdd HH:mm:ss.ms"),
+                      [String]$oDateRan = $(Get-date -F "yyyyMMdd"),
+                      $DebugPreference = "SilentlyContinue"
+                  )
+
+                  "This is $oName"
+               ```
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
