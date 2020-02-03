@@ -64,12 +64,12 @@
    * 批量替换文件内容的操作
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
-         - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/)<br>
+         - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考<br>
          - [Replace string in PowerShell Script using Get-Content and Set-Content](https://social.technet.microsoft.com/Forums/windowsserver/en-US/db2b9342-70b0-4577-b87c-d666f2b40c35/replace-string-in-powershell-script-using-getcontent-and-setcontent?forum=winserverpowershell)<br>
          - YouTube
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
       + 方法
-         1. 直接替换文件内容
+         1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
             - 步骤
             
          2. 建立临时文件，修改后，替换原来文件。注：替换前，重命名文件（更改文件名称），或复制一个。
