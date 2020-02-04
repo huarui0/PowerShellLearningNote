@@ -121,13 +121,14 @@
                ```
 ### 知识点总结
    * 配置文件（Profiles）- 与Function结合看，了解Function跟Profile的关系先
-      + [About Profiles](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7)<>
+      + [About Profiles](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7)<br>
          - >You can create a PowerShell profile to customize your environment and to add session-specific elements to every PowerShell session that you start.
 
          - >A PowerShell profile is a script that runs when PowerShell starts. You can use the profile as a logon script to customize the environment. You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell drives. You can also add other session-specific elements to your profile so they are available in every session without having to import or re-create them.
    * 如何传递参数（parameters）
       + 参考
          - [How do I pass in a string with spaces into PowerShell?](https://stackoverflow.com/questions/28311191/how-do-i-pass-in-a-string-with-spaces-into-powershell)<br>
+         - [About Scopes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes?view=powershell-7)<br>
       + 方法
          1. 通过变量
          ```powershell
@@ -145,9 +146,17 @@
    * PowerShell functions
       + 官方参考
          - [About Functions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions?view=powershell-7) - 重点看<br>
+            * >A function is a named block of code that performs an action. When you type the function name, the code in the function runs. A filter is a named block of code that establishes conditions for an action. You can type the name of the filter in place of the condition, such as in a Where-Object command.
+         - [Function provider](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_function_provider?view=powershell-7) - 必要看！<br>
+            * >The PowerShell Function provider lets you get, add, change, clear, and delete the functions and filters in PowerShell.
          - [About Functions Advanced](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-7)<br>
+         - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7)<br>
+         - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
+   * Script Blocks - 了解与Function的区别
+      + 参考
+         - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
    * PowerShell modules
       + 参考
          - [Use the PowerApps PowerShell modules to automate tasks with the Microsoft Power Platform](https://blog.atwork.at/post/Use-PowerApps-PowerShells)<br>
