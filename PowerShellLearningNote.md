@@ -120,6 +120,11 @@
                    Move-Item -Path $tempFilePath -Destination $filePath
                ```
 ### 知识点总结
+   * 配置文件（Profiles）- 与Function结合看，了解Function跟Profile的关系先
+      + [About Profiles](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7)<>
+         - >You can create a PowerShell profile to customize your environment and to add session-specific elements to every PowerShell session that you start.
+
+         - >A PowerShell profile is a script that runs when PowerShell starts. You can use the profile as a logon script to customize the environment. You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell drives. You can also add other session-specific elements to your profile so they are available in every session without having to import or re-create them.
    * 如何传递参数（parameters）
       + 参考
          - [How do I pass in a string with spaces into PowerShell?](https://stackoverflow.com/questions/28311191/how-do-i-pass-in-a-string-with-spaces-into-powershell)<br>
@@ -138,6 +143,9 @@
          - [Windows PowerShell Cookbook, 3rd Edition by Lee Holmes](https://www.oreilly.com/library/view/windows-powershell-cookbook/9781449359195/ch04.html)<br>
          - [5 Flow control in scripts](https://livebook.manning.com/book/windows-powershell-in-action-third-edition/chapter-5/v-16/1) - 不错的书<br>
    * PowerShell functions
+      + 官方参考
+         - [About Functions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions?view=powershell-7) - 重点看<br>
+         - [About Functions Advanced](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
    * PowerShell modules
