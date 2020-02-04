@@ -62,6 +62,8 @@
          - [求助一个批量修改子文件夹中文件名的批处理文件](http://www.bathome.net/thread-53039-1-1.html) - 其中提供的vbs的方法<br>
          - [vbs批量修改文件名](https://blog.csdn.net/u011668104/article/details/52240018)<br>
    * 批量替换文件内容的操作
+      + Google Search
+         - `powershell how to replace text in file`
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
          - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考<br>
