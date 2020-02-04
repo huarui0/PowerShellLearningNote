@@ -45,7 +45,10 @@
          >如果想生成当前会话的记录，可以运行Start-Transcript命令，它基于当前系统时间。如果想停止，运行Stop-Transcript：
 ### 文件及文件夹操作
    * 官网参考
-      + [Get-ChildItem](Get-ChildItem)<br>
+      + [Working with Files and Folders](https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders?view=powershell-7.x) - 参考这篇为准<br>
+      + [Get-ChildItem](Get-ChildItem) - 详细学习<br>
+      + [Copy-Item](Copy-Item)<br>
+      + [New-Item](New-Item)<br>
    * 搜索文件夹及文件的方法
    * 批量拷贝复制文件和文件夹的操作
       + 参考
