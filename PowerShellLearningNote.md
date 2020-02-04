@@ -72,12 +72,50 @@
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
       + 方法
          1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
-            - 测试文件位置
-               * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
+            - 测试文件位置 - Sample 1
+               * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\ReplaceFileContent.ps1
+               * 测试用例文件：E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file.txt
             - 步骤
-            
+               1. To read this file, you can use the Get-Content command.
+               ```shell
+                   $content = Get-Content -Path 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file.txt '
+               ```
+               2. Finding and Replacing the String
+               ```shell
+                   PS> $newContent = $content -replace 'foo', 'bar'
+                   bar bar baz
+               ```
+               3. Writing to the File
+               ```shell
+                  $newContent | Set-Content -Path 'C:\file.txt'
+               ```
+               4. 
          2. 建立临时文件，修改后，替换原来文件。注：替换前，重命名文件（更改文件名称），或复制一个。
             - 步骤
+            
+               * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\ReplaceFileContentByTmpFile.ps1
+               * 测试用例文件：E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file_by_tmp.txt
+            - 步骤
+               1. 
+               ```shell
+                   $filePath = 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file_by_tmp.txt'
+               ```
+               2. 
+               ```shell
+                   $tempFilePath = "$env:TEMP\$($filePath | Split-Path -Leaf)"
+               ```
+               3. To read this file, you can use the Get-Content command., Finding and Replacing the String, then Writing to the TMP File
+               ```shell
+                  $find = 'foo'
+                  $replace = 'bar tmp'
+ 
+                  (Get-Content -Path $filePath) -replace $find, $replace | Add-Content -Path $tempFilePath
+               ```
+               4. 
+               ```shell
+                   Remove-Item -Path $filePath
+                   Move-Item -Path $tempFilePath -Destination $filePath
+               ```
 ### 知识点总结
    * 如何传递参数（parameters）
       + 参考
