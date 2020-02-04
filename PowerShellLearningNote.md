@@ -72,6 +72,8 @@
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
       + 方法
          1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
+            - 测试文件位置
+               * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
             - 步骤
             
          2. 建立临时文件，修改后，替换原来文件。注：替换前，重命名文件（更改文件名称），或复制一个。
@@ -111,7 +113,7 @@
          ```
          + 结果如下：
          ```shell
-             PS E:\Notes\4_ComputeCourse\PowerShell\Script>  .\TestQuotes.ps1 -Config 'A B C' -Country '中国’
+             PS E:\Notes\4_LearningNotes\PowerShell\Script>  .\TestQuotes.ps1 -Config 'A B C' -Country '中国’
              Config = A B C
              Country = 中国
             ```
@@ -121,7 +123,7 @@
              PowerShell .\TestQuotes.ps1 -Config "A B C" - 用PowerShell 参数的方式不同：所有参数均包含在""中。 
          ```
          ```shell
-             E:\Notes\4_ComputeCourse\PowerShell\Script>powershell .\test1.ps1 -x 'hello world' -y 'my friend'
+             E:\Notes\4_LearningNotes\PowerShell\Script>powershell .\test1.ps1 -x 'hello world' -y 'my friend'
              hello world
              my friend
          ```
@@ -135,10 +137,10 @@
          ```
          + 结果如下：
          ```shell
-             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
+             PS E:\Notes\4_LearningNotes\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
              Config = A
              Country = B
-             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
+             PS E:\Notes\4_LearningNotes\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
              Config = A
              Country = 中国
          ```
@@ -146,7 +148,7 @@
          + 参考
             * [How to pass batch file variables to PowerShell script? [duplicate]](https://stackoverflow.com/questions/56961935/how-to-pass-batch-file-variables-to-powershell-script)<br>
          + 测试文件位置 - Sample 1
-            * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\test1.ps1
+            * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
             ```shell
                # test1.ps1
                param(
@@ -156,7 +158,7 @@
 
                &echo $x $y
             ```
-            * 批处理文件（bat)：E:\Notes\4_ComputeCourse\PowerShell\Script\test.bat
+            * 批处理文件（bat)：E:\Notes\4_LearningNotes\PowerShell\Script\test.bat
             ```shell
                @rem test.bat
                @powershell -file test.ps1 %1 %2 %3 %4
@@ -167,17 +169,17 @@
          ```
          + 结果如下：
          ```shell
-             E:\Notes\4_ComputeCourse\PowerShell\Script>test.bat -x "hello world" -y "my friend"
+             E:\Notes\4_LearningNotes\PowerShell\Script>test.bat -x "hello world" -y "my friend"
              hello world
              my friend
          ```
          + 测试文件位置 - Sample 2
-            * powershell文件：E:\Notes\4_ComputeCourse\PowerShell\Script\updateTool.ps1
+            * powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\updateTool.ps1
             ```shell
                ## Script: UpdateTool.ps1
                # 
                param(
-                   [String]$LOG_FILE = 'E:\Notes\4_ComputeCourse\PowerShell\Script\TestFolder\default.log',
+                   [String]$LOG_FILE = 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\default.log',
                    [String]$oName = 'default name',
                    [String]$oStart = $(Get-date -F "yyyyMMdd HH:mm:ss.ms"),
                    [Int]$oStatus = 0,
@@ -188,7 +190,7 @@
 
                "This is $oName"
             ```
-            * 批处理文件（bat)：E:\Notes\4_ComputeCourse\PowerShell\Script\Test_BatchFile_updateTool.bat
+            * 批处理文件（bat)：E:\Notes\4_LearningNotes\PowerShell\Script\Test_BatchFile_updateTool.bat
             ```vbscript
                @(
                   SETLOCAL ENABLEDELAYEDEXPANSION
@@ -219,10 +221,10 @@
          ```
          + 结果如下：
          ```shell
-             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
+             PS E:\Notes\4_LearningNotes\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"
              Config = A
              Country = B
-             PS E:\Notes\4_ComputeCourse\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
+             PS E:\Notes\4_LearningNotes\PowerShell\Script> PowerShell .\TestQuotes.ps1 -Config "A B C"  -Country '中国'
              Config = A
              Country = 中国
          ```
