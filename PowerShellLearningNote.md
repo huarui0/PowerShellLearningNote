@@ -84,7 +84,7 @@
          - YouTube
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
                + 备注
-                  1. 注意写法格式的不同：().replace
+                  1. 注意方法的不同：().replace 括弧中是 String，方法用到 String.replace 的方法 查询的方式：$Varible | Get-Number
                   2. 顺带学习 Regular Expression
       + 方法
          1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
