@@ -81,10 +81,11 @@
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
          - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考<br>
          - [Replace string in PowerShell Script using Get-Content and Set-Content](https://social.technet.microsoft.com/Forums/windowsserver/en-US/db2b9342-70b0-4577-b87c-d666f2b40c35/replace-string-in-powershell-script-using-getcontent-and-setcontent?forum=winserverpowershell)<br>
+         - [String.Replace Method](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?view=netframework-4.8) - 参看其中的Examples<br>
          - YouTube
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
                + 备注
-                  1. 注意方法的不同：().replace 括弧中是 String，方法用到 String.replace 的方法 查询的方式：$Varible | Get-Number
+                  1. 注意方法的不同：().replace 括弧中是 String，方法用到 String.replace 的方法 查询的方式：$Varible | Get-Number 参考：String.Replace Method
                   2. 顺带学习 Regular Expression
       + 方法
          1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
