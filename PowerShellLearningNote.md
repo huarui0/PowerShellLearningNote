@@ -308,6 +308,7 @@
       + [Help with passing arguments with Invoke-Command (I am using -ArgumentList)](https://powershell.org/forums/topic/help-with-passing-arguments-with-invoke-command-i-am-using-argumentlist/)<br>
       + [Portable Modules](https://docs.microsoft.com/en-us/powershell/scripting/learn/writing-portable-modules?view=powershell-7.x) - 功能强大，后续学习<br>
       + [Running Remote Commands](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-7.x)<br>
+      + [Create your first PowerShell function in Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-powershell)<br>
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
