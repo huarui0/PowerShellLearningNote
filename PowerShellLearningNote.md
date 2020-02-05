@@ -169,6 +169,37 @@
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
+      + Funtion 格式（写法）
+         - 测试文件位置
+            * Sample 1
+               + powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\function_test1.ps1
+               ```shell
+
+                  function HelloWorld {
+                      Write-Host 'Hello world!'
+                  }
+
+                  function Get-Square([int]$x) {
+                      $res = $x * $x
+                      return $res
+                  }
+
+
+                  # cls
+                  HelloWorld
+
+                  $x = Read-Host 'Enter a value'
+                  $sqres = Get-Square $x
+                  Write-Output "$x * $x = $sqres"
+
+               ```
+            * Sample 2
+               + powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
+      + 执行方式
+         1. 在脚本中直接调用 - 执行方法参照 【脚本执行模式】 
+      
+      
+      
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
