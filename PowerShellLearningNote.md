@@ -80,6 +80,7 @@
       + 参考
          - [How To Replace Text in a File with PowerShell](https://mcpmag.com/articles/2018/08/08/replace-text-with-powershell.aspx)<br>
          - [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考<br>
+         - [Replacing Strings in Files Using PowerShell](https://www.itprotoday.com/powershell/replacing-strings-files-using-powershell) - 这篇也不错<br>
          - [Replace string in PowerShell Script using Get-Content and Set-Content](https://social.technet.microsoft.com/Forums/windowsserver/en-US/db2b9342-70b0-4577-b87c-d666f2b40c35/replace-string-in-powershell-script-using-getcontent-and-setcontent?forum=winserverpowershell)<br>
          - [String.Replace Method](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?view=netframework-4.8) - 参看其中的Examples<br>
          - YouTube
