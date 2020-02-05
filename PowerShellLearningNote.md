@@ -9,8 +9,8 @@
       + Youtube
          - [PowerShell String Manipulation](https://www.youtube.com/watch?v=-aQWrfqHbjU)<br>
             * 说明
-               1. 这个视频非常好，学完基础后，必要看
-               2. 可以学
+               + 这个视频非常好，学完基础后，必要看
+               + 可以学
                   a. 条件的使用
                   b. 流程的控制
    * 重要提示
