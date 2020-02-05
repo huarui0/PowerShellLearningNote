@@ -6,6 +6,13 @@
       + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
       + [Powershell 编写和运行脚本](https://www.pstips.net/powershell-create-and-start-scripts.html) - 参考其中的几个方法<br>
       + [从零开始——PowerShell应用入门（全例子入门讲解）](https://www.cnblogs.com/lavender000/p/6935589.html)<br>
+      + Youtube
+         - [PowerShell String Manipulation](https://www.youtube.com/watch?v=-aQWrfqHbjU)<br>
+            * 说明
+               1. 这个视频非常好，学完基础后，必要看
+               2. 可以学
+                  a. 条件的使用
+                  b. 流程的控制
    * 重要提示
       + 查询命令用法
       ```shell
