@@ -66,6 +66,7 @@
          - [vbs + PowerShell 对文件批量重命名](https://zhuanlan.zhihu.com/p/76023063)<br>
          - [求助一个批量修改子文件夹中文件名的批处理文件](http://www.bathome.net/thread-53039-1-1.html) - 其中提供的vbs的方法<br>
          - [vbs批量修改文件名](https://blog.csdn.net/u011668104/article/details/52240018)<br>
+   * 批量添加文件内容的操作 - Add-Content 的方法 - 研究：是否可以当中插入内容？
    * 批量替换文件内容的操作
       + Google Search
          - `powershell how to replace text in file`
@@ -75,6 +76,9 @@
          - [Replace string in PowerShell Script using Get-Content and Set-Content](https://social.technet.microsoft.com/Forums/windowsserver/en-US/db2b9342-70b0-4577-b87c-d666f2b40c35/replace-string-in-powershell-script-using-getcontent-and-setcontent?forum=winserverpowershell)<br>
          - YouTube
             * [How To Replace Text In A File With PowerShell - YouTube](https://www.youtube.com/watch?v=VbtTCLFjr7w)<br>
+               + 备注
+                  1. 注意写法格式的不同：().replace
+                  2. 顺带学习 Regular Expression
       + 方法
          1. 直接替换文件内容 - 以 [Using PowerShell to replace text in a file](https://adamtheautomator.com/powershell-replace-text-in-file/) - **重点**：以这篇文档为参考
             - 测试文件位置 - Sample 1
