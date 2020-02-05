@@ -10,9 +10,9 @@
          - [PowerShell String Manipulation](https://www.youtube.com/watch?v=-aQWrfqHbjU)<br>
             * 说明
                + 这个视频非常好，学完基础后，必要看
-               + 可以学
-                  a. 条件的使用
-                  b. 流程的控制
+               + 可以学<br>
+                  1. 条件的使用
+                  2. 流程的控制
    * 重要提示
       + 查询命令用法
       ```shell
