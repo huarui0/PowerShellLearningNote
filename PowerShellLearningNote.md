@@ -169,9 +169,13 @@
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
+         - [PowerShell Function: Syntax, Parameters, Examples](https://www.itechguides.com/powershell-function-syntax-parameters-examples/)<br>
       + Funtion 格式（写法）
          - 测试文件位置
             * Sample 1
+               + 参考
+                  - [Powershell Functions Introduction](https://adamtheautomator.com/powershell-functions/)<br>
+                  - [PowerShell Functions](https://www.javatpoint.com/powershell-functions) - 调用的例子<br>
                + powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\function_test1.ps1
                ```shell
 
@@ -196,7 +200,7 @@
             * Sample 2
                + powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
       + 执行方式
-         1. 在脚本中直接调用 - 执行方法参照 【脚本执行模式】 
+         1. 在脚本中直接调用- 例子见 Sample 1.  - 执行方法参照 【脚本执行模式】
       
       
       
