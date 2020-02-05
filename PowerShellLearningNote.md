@@ -55,7 +55,7 @@
 ### 文件及文件夹操作
    * 官网参考
       + [Working with Files and Folders](https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders?view=powershell-7.x) - 参考这篇为准<br>
-      + [Get-ChildItem](Get-ChildItem) - 详细学习<br>
+      + [Get-ChildItem](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.x) - 详细学习<br>
       + [Copy-Item](Copy-Item)<br>
       + [New-Item](New-Item)<br>
    * 搜索文件夹及文件的方法
