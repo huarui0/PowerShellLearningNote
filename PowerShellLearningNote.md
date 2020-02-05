@@ -1,5 +1,7 @@
 # Windows
 ## PowerShell & VBScript
+   * 学习路线图
+      + --> ... --> Function --> Provider --> ...
    * 参考
       + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
       + [Powershell 编写和运行脚本](https://www.pstips.net/powershell-create-and-start-scripts.html) - 参考其中的几个方法<br>
