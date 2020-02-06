@@ -3,11 +3,13 @@
    * 学习路线图
       + --> ... --> Function --> Provider --> ...
    * 安装
+      + 下载地址
+         - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
       + 参考
          - [Installing the ZIP package](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.x#zip)<br>
          - [Upgrading to PowerShell 7: A Walkthrough](https://adamtheautomator.com/updating-to-powershell-7/) - 有些复杂，但很专业，版本不是最新<br>
-      + 下载地址
-         - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
+         - [HOW TO INSTALL AND UPDATE POWERSHELL 7](https://www.thomasmaurer.ch/2019/07/how-to-install-and-update-powershell-7/)<br>
+         - [How to Install PowerShell 7](https://www.petri.com/how-to-install-powershell-7)<br>
    * 常用命令
       + 查版本及相关信息
       ```
