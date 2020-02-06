@@ -2,6 +2,12 @@
 ## PowerShell & VBScript
    * 学习路线图
       + --> ... --> Function --> Provider --> ...
+   * 安装
+      + 参考
+         - [Installing the ZIP package](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.x#zip)<br>
+         - [Upgrading to PowerShell 7: A Walkthrough](https://adamtheautomator.com/updating-to-powershell-7/) - 有些复杂，但很专业，版本不是最新<br>
+      + 下载地址
+         - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
    * 参考
       + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
       + [Powershell 编写和运行脚本](https://www.pstips.net/powershell-create-and-start-scripts.html) - 参考其中的几个方法<br>
@@ -155,6 +161,16 @@
          ```
       + 注意：**单引号与双引号的区别**
    * 如何循环和流程控制(Looping and Flow Control)
+      + 官方参考
+         - [ForEach-Object](https://docs.microsoft.com/ja-jp/PowerShell/module/microsoft.powershell.core/foreach-object?view=powershell-7.x)<br>
+         - [About ForEach](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7)<br>
+            * 注意
+               1. Within the script block, use the `$_` variable to represent the current object.
+               2. Deference between `Script block` and `Operation statement`.
+               3. About `Script block`:
+               >The Begin script block, which is the value of the Begin parameter, runs before this cmdlet processes the first input object. The End script block, which is the value of the End parameter, runs after this cmdlet processes the last input object.
+               4. About `Parallel running script block`:
+               >Beginning with PowerShell 7.0, a third parameter set is available that runs each script block in parallel. There is a -ThrottleLimit parameter that limits the number of parallel scripts running at a time. As before, use the $_ variable to represent the current input object in the script block. Use the $using: keyword to pass variable references to the running script.
       + 参考
          - [Windows PowerShell Cookbook, 3rd Edition by Lee Holmes](https://www.oreilly.com/library/view/windows-powershell-cookbook/9781449359195/ch04.html)<br>
          - [5 Flow control in scripts](https://livebook.manning.com/book/windows-powershell-in-action-third-edition/chapter-5/v-16/1) - 不错的书<br>
