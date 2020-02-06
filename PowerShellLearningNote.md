@@ -8,6 +8,12 @@
          - [Upgrading to PowerShell 7: A Walkthrough](https://adamtheautomator.com/updating-to-powershell-7/) - 有些复杂，但很专业，版本不是最新<br>
       + 下载地址
          - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
+   * 常用命令
+      + 查版本及相关信息
+      ```
+      Get-Host | Select-Object Version
+      $PSVersionTable
+      ```
    * 参考
       + [PowerShell/docs/learning-powershell/](https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell) - 官方指南，最权威。非常棒的入门学习资料<br>
       + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
@@ -353,6 +359,7 @@
              Config = A
              Country = 中国
          ```
+
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
