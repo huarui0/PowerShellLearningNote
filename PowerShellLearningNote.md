@@ -184,6 +184,9 @@
       + 参考
          - [Windows PowerShell Cookbook, 3rd Edition by Lee Holmes](https://www.oreilly.com/library/view/windows-powershell-cookbook/9781449359195/ch04.html)<br>
          - [5 Flow control in scripts](https://livebook.manning.com/book/windows-powershell-in-action-third-edition/chapter-5/v-16/1) - 不错的书<br>
+   * Regular Expressions in PowerShell
+      + 参考
+         - [About Regular Expressions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_regular_expressions?view=powershell-7)<br>
    * PowerShell functions
       + 官方参考
          - [About Functions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions?view=powershell-7) - 重点看<br>
