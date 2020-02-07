@@ -17,7 +17,7 @@
       $PSVersionTable
       ```
    * 参考
-      + [PowerShell/docs/learning-powershell/](https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell) - 官方指南，最权威。很棒的入门学习资料<br>
+      + [PowerShell/docs/learning-powershell/](https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell) - 官方指南，最权威。很棒的入门学习资料 - 详细的学习参见 微软官网 的 PowerShell 主页：[https://docs.microsoft.com/en-us/powershell](https://docs.microsoft.com/en-us/powershell)<br>
          - [PowerShell Beginner’s Guide](https://github.com/PowerShell/PowerShell/blob/master/docs/learning-powershell/powershell-beginners-guide.md)<br>
       + [Starting Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-7.x)<br>
       + [Powershell 编写和运行脚本](https://www.pstips.net/powershell-create-and-start-scripts.html) - 参考其中的几个方法<br>
