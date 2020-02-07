@@ -187,20 +187,20 @@
    * Comparison Operator
       + 官方参考
          - [Removing Objects from the Pipeline (Where-Object)](https://docs.microsoft.com/en-us/powershell/scripting/samples/removing-objects-from-the-pipeline--where-object-?view=powershell-7.x)<br>
-         >Due to parsing considerations, symbols such as <,>, and = are not used as comparison operators. Instead, comparison operators are comprised of letters. The basic comparison operators are listed in the following table.
-         | Comparison Operator | Meaning | Example (returns true) |
-         |:-------|:-------|:------|
-         | -eq |	is equal to |	1 -eq 1 |
-         | -ne |	Is not equal to	| 1 -ne 2 |
-         | -lt |	Is less than |	1 -lt 2 |
-         | -le |	Is less than or equal to |	1 -le 2 |
-         | -gt |	Is greater than |	2 -gt 1 |
-         | -ge |	Is greater than or equal to |	2 -ge 1 |
-         | -like |	Is like (wildcard comparison for text) |	"file.doc" -like "f*.do?" |
-         | -notlike |	Is not like (wildcard comparison for text) |	"file.doc" -notlike "p*.doc" |
-         | -contains |	Contains |	1,2,3 -contains 1 |
-         | -notcontains |	Does not contain |	1,2,3 -notcontains 4 |
-         |:-------|:-------|:------|
+            * >Due to parsing considerations, symbols such as <,>, and = are not used as comparison operators. Instead, comparison operators are comprised of letters. The basic comparison operators are listed in the following table.<br>
+            * | Comparison Operator | Meaning | Example (returns true) |
+              |:-------|:-------|:------|
+              | -eq |	is equal to |	1 -eq 1 |
+              | -ne |	Is not equal to	| 1 -ne 2 |
+              | -lt |	Is less than |	1 -lt 2 |
+              | -le |	Is less than or equal to |	1 -le 2 |
+              | -gt |	Is greater than |	2 -gt 1 |
+              | -ge |	Is greater than or equal to |	2 -ge 1 |
+              | -like |	Is like (wildcard comparison for text) |	"file.doc" -like "f*.do?" |
+              | -notlike |	Is not like (wildcard comparison for text) |	"file.doc" -notlike "p*.doc" |
+              | -contains |	Contains |	1,2,3 -contains 1 |
+              | -notcontains |	Does not contain |	1,2,3 -notcontains 4 |
+              |:-------|:-------|:------|
    * Regular Expressions in PowerShell
       + 参考
          - [About Regular Expressions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_regular_expressions?view=powershell-7)<br>
