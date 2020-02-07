@@ -172,7 +172,7 @@
       + 注意：**单引号与双引号的区别**
    * 如何循环和流程控制(Looping and Flow Control)
       + 官方参考
-         - [ForEach-Object](https://docs.microsoft.com/ja-jp/PowerShell/module/microsoft.powershell.core/foreach-object?view=powershell-7.x)<br>
+         - [ForEach-Object](https://docs.microsoft.com/ja-jp/PowerShell/module/microsoft.powershell.core/foreach-object?view=powershell-7.x) - 重要：Parallel 的学习，并应用！<br>
             * 注意
                1. Within the script block, use the `$_` variable to represent the current object.
                2. Deference between `Script block` and `Operation statement`.
