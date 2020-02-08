@@ -263,14 +263,15 @@
       + 官网参考
          - [About methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_methods?view=powershell-7.x)<br>
             * >Objects have properties, which store data about the object, and methods that let you change the object.
-               
-               A "method" is a set of instructions that specify an action you can perform on the object. For example, the FileInfo object includes the CopyTo method that copies the file that the FileInfo object represents.
-   * About Comment Based Help
+              >
+              >A "method" is a set of instructions that specify an action you can perform on the object. For example, the FileInfo object includes the CopyTo method that copies the file that the FileInfo object represents.
             * 获取一个对象的所有Method
                + To get the methods of any object, use the Get-Member cmdlet. Use its MemberType property with a value of "Method". The following command gets the methods of process objects.
                ```powershell
                    Get-Process | Get-Member -MemberType Method
                ```
+   * About Comment Based Help
+
       + 官网参考
          - [About Comment Based Help](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help?view=powershell-7.x)<br>
    * PowerShell modules
