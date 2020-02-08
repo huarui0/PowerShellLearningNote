@@ -156,6 +156,9 @@
          - >You can create a PowerShell profile to customize your environment and to add session-specific elements to every PowerShell session that you start.
 
          - >A PowerShell profile is a script that runs when PowerShell starts. You can use the profile as a logon script to customize the environment. You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell drives. You can also add other session-specific elements to your profile so they are available in every session without having to import or re-create them.
+   * About Automatic Variables
+      + 官网参考
+         - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7)<br>
    * 如何传递参数（parameters）
       + 参考
          - [How do I pass in a string with spaces into PowerShell?](https://stackoverflow.com/questions/28311191/how-do-i-pass-in-a-string-with-spaces-into-powershell)<br>
@@ -186,6 +189,7 @@
          - [5 Flow control in scripts](https://livebook.manning.com/book/windows-powershell-in-action-third-edition/chapter-5/v-16/1) - 不错的书<br>
    * Comparison Operator
       + 官方参考
+         - [Where-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object?view=powershell-7.x)<br>
          - [Removing Objects from the Pipeline (Where-Object)](https://docs.microsoft.com/en-us/powershell/scripting/samples/removing-objects-from-the-pipeline--where-object-?view=powershell-7.x)<br>
             * >Due to parsing considerations, symbols such as <,>, and = are not used as comparison operators. Instead, comparison operators are comprised of letters. The basic comparison operators are listed in the following table.<br>
             * |: Comparison Operator :|: Meaning :|: Example (returns true) :|
@@ -200,6 +204,9 @@
               | -notlike |	Is not like (wildcard comparison for text) |	"file.doc" -notlike "p*.doc" |
               | -contains |	Contains |	1,2,3 -contains 1 |
               | -notcontains |	Does not contain |	1,2,3 -notcontains 4 |
+   * about_Logical_Operators
+      + 参考
+         - [about_Logical_Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-7.x)<br>
    * Regular Expressions in PowerShell
       + 参考
          - [About Regular Expressions](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_regular_expressions?view=powershell-7)<br>
@@ -252,6 +259,12 @@
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
+   * About methods
+      + 官网参考
+         - [About methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_methods?view=powershell-7.x)<br>
+            * >Objects have properties, which store data about the object, and methods that let you change the object.
+
+              >A "method" is a set of instructions that specify an action you can perform on the object. For example, the FileInfo object includes the CopyTo method that copies the file that the FileInfo object represents.
    * About Comment Based Help
       + 官网参考
          - [About Comment Based Help](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help?view=powershell-7.x)<br>
