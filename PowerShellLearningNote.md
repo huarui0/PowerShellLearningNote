@@ -178,8 +178,8 @@
             * 官网参考
                + [About Special Characters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.x)<br>
                   - Special parsing token:
-                     * | Sequence | Description |
-                       | `--%`    | Stop parsing anything that follows |
+                     * |Sequence|Description|
+                       |`--%`|Stop parsing anything that follows|
                   - Null (`0)
                      * >The null (\`0) character appears as an empty space in PowerShell output. This functionality allows you to use PowerShell to read and process text files that use null characters, such as string termination or record termination indicators. The null special character isn't equivalent to the `$null` variable, which stores a null value.
                   - Backspace (`b)
@@ -237,7 +237,7 @@
          - [Where-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object?view=powershell-7.x)<br>
          - [Removing Objects from the Pipeline (Where-Object)](https://docs.microsoft.com/en-us/powershell/scripting/samples/removing-objects-from-the-pipeline--where-object-?view=powershell-7.x)<br>
             * >Due to parsing considerations, symbols such as <,>, and = are not used as comparison operators. Instead, comparison operators are comprised of letters. The basic comparison operators are listed in the following table.<br>
-            * |: Comparison Operator :|: Meaning :|: Example (returns true) :|
+            * |Comparison Operator|Meaning|Example (returns true)|
               |:-------|:-------|:------|
               | -eq |	is equal to |	1 -eq 1 |
               | -ne |	Is not equal to	| 1 -ne 2 |
