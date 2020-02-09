@@ -177,7 +177,15 @@
          - About Special Characters
             * 官网参考
                + [About Special Characters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.x)<br>
-                  - 
+                  - Special parsing token:
+                     * | Sequence | Description |
+                       | `--%`    | Stop parsing anything that follows |
+                  - Null (`0)
+                     * >The null (\`0) character appears as an empty space in PowerShell output. This functionality allows you to use PowerShell to read and process text files that use null characters, such as string termination or record termination indicators. The null special character isn't equivalent to the `$null` variable, which stores a null value.
+                  - Backspace (`b)
+                     * >The backspace (\`b) character moves the cursor back one character, but it doesn't delete any characters.
+                  - 变量符号 (`$)
+                     * 变量符号`$`的原始输出
          - About Quoting Rules
             * 官网参考
                + [About Quoting Rules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7.x)<br>
