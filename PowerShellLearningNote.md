@@ -169,6 +169,10 @@
          - >A PowerShell profile is a script that runs when PowerShell starts. You can use the profile as a logon script to customize the environment. You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell drives. You can also add other session-specific elements to your profile so they are available in every session without having to import or re-create them.
    * About Variables
       + About String
+         - About NULL and EMPTY
+            * 参考
+               + [PowerShell - Testing if a String is NULL or EMPTY]() - **很好，参考这篇为准**<br>
+               + [Powershell: How to check if a string is null or empty](https://cantyouautomatethat.com/powershell-check-if-string-null-or-empty/) - 也不错<br>
          - About join
             * 官网参考
                + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
