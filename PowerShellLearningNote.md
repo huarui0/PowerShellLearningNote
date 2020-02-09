@@ -172,6 +172,12 @@
          - About join
             * 官网参考
                + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
+                  - About $null
+                  >$null is an automatic variable that contains a null or empty value. You can use this variable to represent an absent or undefined value in commands and scripts.
+                  >
+                  >PowerShell treats $null as an object with a value, that is, as an explicit placeholder, so you can use $null to represent an empty value in a series of values.
+
+
    * About Automatic Variables
       + 官网参考
          - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7)<br>
