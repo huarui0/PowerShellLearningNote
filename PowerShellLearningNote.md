@@ -173,7 +173,7 @@
             * 参考
                + [PowerShell - Testing if a String is NULL or EMPTY]() - **很好，参考这篇为准**<br>
                + [Powershell: How to check if a string is null or empty](https://cantyouautomatethat.com/powershell-check-if-string-null-or-empty/) - 也不错<br>
-               + 参考下面 About Automatic Variables 中 About $null
+               + 参考下面 About Automatic Variables 中 About $null<br>
          - About Special Characters
             * 官网参考
                + [About Special Characters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.x)<br>
