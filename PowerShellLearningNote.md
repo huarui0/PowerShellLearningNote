@@ -172,15 +172,15 @@
          - About join
             * 官网参考
                + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
-                  - About $null
-                  >$null is an automatic variable that contains a null or empty value. You can use this variable to represent an absent or undefined value in commands and scripts.
-                  >
-                  >PowerShell treats $null as an object with a value, that is, as an explicit placeholder, so you can use $null to represent an empty value in a series of values.
-
 
    * About Automatic Variables
       + 官网参考
          - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7)<br>
+            * About $null
+               + >$null is an automatic variable that contains a null or empty value. You can use this variable to represent an absent or undefined value in commands and scripts.
+                 >
+                 >PowerShell treats $null as an object with a value, that is, as an explicit placeholder, so you can use $null to represent an empty value in a series of values.
+
    * 如何传递参数（parameters）
       + 参考
          - [How do I pass in a string with spaces into PowerShell?](https://stackoverflow.com/questions/28311191/how-do-i-pass-in-a-string-with-spaces-into-powershell)<br>
@@ -280,9 +280,8 @@
                + powershell文件：E:\Notes\4_LearningNotes\PowerShell\Script\test1.ps1
       + 执行方式
          1. 在脚本中直接调用- 例子见 Sample 1.  - 执行方法参照 【脚本执行模式】
-      
-      
-      
+
+
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
