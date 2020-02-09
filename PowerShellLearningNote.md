@@ -151,6 +151,15 @@
                    Move-Item -Path $tempFilePath -Destination $filePath
                ```
 ### 知识点总结
+   * Understanding file encoding in VSCode and PowerShell
+      + [Understanding file encoding in VSCode and PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7.x)<br>
+         - If you need to re-encode multiple files, you can use the following script: - 设置命令
+         ```powershell
+             Get-ChildItem *.ps1 -Recurse | ForEach-Object {
+                 $content = Get-Content -Path $_
+                 Set-Content -Path $_.Fullname -Value $content -Encoding UTF8 -PassThru -Force
+             }
+         ```
    * 配置文件（Profiles）- 与Function结合看，了解Function跟Profile的关系先
       + [About Profiles](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7)<br>
          - >You can create a PowerShell profile to customize your environment and to add session-specific elements to every PowerShell session that you start.
