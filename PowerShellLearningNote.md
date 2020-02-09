@@ -152,19 +152,26 @@
                ```
 ### 知识点总结
    * Understanding file encoding in VSCode and PowerShell
-      + [Understanding file encoding in VSCode and PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7.x)<br>
-         - If you need to re-encode multiple files, you can use the following script: - 设置命令
-         ```powershell
-             Get-ChildItem *.ps1 -Recurse | ForEach-Object {
-                 $content = Get-Content -Path $_
-                 Set-Content -Path $_.Fullname -Value $content -Encoding UTF8 -PassThru -Force
-             }
-         ```
+      + 官网参考
+         - [Understanding file encoding in VSCode and PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7.x)<br>
+            - If you need to re-encode multiple files, you can use the following script: - 设置命令
+            ```powershell
+                Get-ChildItem *.ps1 -Recurse | ForEach-Object {
+                    $content = Get-Content -Path $_
+                    Set-Content -Path $_.Fullname -Value $content -Encoding UTF8 -PassThru -Force
+                }
+            ```
+      + [](https://blog.invivoo.com/how-to-solve-unicode-encoding-issues/)<br>
    * 配置文件（Profiles）- 与Function结合看，了解Function跟Profile的关系先
       + [About Profiles](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7)<br>
          - >You can create a PowerShell profile to customize your environment and to add session-specific elements to every PowerShell session that you start.
 
          - >A PowerShell profile is a script that runs when PowerShell starts. You can use the profile as a logon script to customize the environment. You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell drives. You can also add other session-specific elements to your profile so they are available in every session without having to import or re-create them.
+   * About Variables
+      + About String
+         - About join
+            * 官网参考
+               + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
    * About Automatic Variables
       + 官网参考
          - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7)<br>
