@@ -191,7 +191,10 @@
             * 官网参考
                + [About Quoting Rules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7.x)<br>
          - About String Comparison
-            * 
+            * 官网参考
+               + [About Comparison Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-7.x)<br>
+                  - Note
+                     * > If you need to compare a value to `$null` you should put `$null` on the left-hand side of the comparison. When you compare `$null` to an **Object[]** the result is **False** because the comparison object is an array. When you compare an array to `$null`, the comparison filters out any `$null` values stored in the array. For example:
          - About join
             * 官网参考
                + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
@@ -237,6 +240,7 @@
          - [About Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.x)<br>
    * Comparison Operator
       + 官方参考
+         - [About Comparison Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-7.x)<br>
          - [Where-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object?view=powershell-7.x)<br>
          - [Removing Objects from the Pipeline (Where-Object)](https://docs.microsoft.com/en-us/powershell/scripting/samples/removing-objects-from-the-pipeline--where-object-?view=powershell-7.x)<br>
             * >Due to parsing considerations, symbols such as <,>, and = are not used as comparison operators. Instead, comparison operators are comprised of letters. The basic comparison operators are listed in the following table.<br>
