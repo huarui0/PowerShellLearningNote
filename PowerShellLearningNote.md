@@ -190,10 +190,12 @@
          - About Quoting Rules
             * 官网参考
                + [About Quoting Rules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7.x)<br>
+         - About String Comparison
+            * 
          - About join
             * 官网参考
                + [About join](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_join?view=powershell-7.x)<br>
-
+      * About Array
    * About Automatic Variables
       + 官网参考
          - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7)<br>
