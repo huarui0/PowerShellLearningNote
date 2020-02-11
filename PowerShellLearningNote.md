@@ -330,12 +330,13 @@
    * PowerShell modules
       + 参考
          - [Use the PowerApps PowerShell modules to automate tasks with the Microsoft Power Platform](https://blog.atwork.at/post/Use-PowerApps-PowerShells)<br>
-   * Automation of tasks with PowerShell
-      + 参考
-         - [Automation of tasks with PowerShell](https://docs.microsoft.com/en-us/power-platform/admin/wp-task-automation-powershell)<br>
       + Samples
          - [drmohundro/Find-String](https://github.com/drmohundro/Find-String)<br>
          - >Find-String is a PowerShell script whose purpose is to emulate grep and/or ack. PowerShell already has the built-in Select-String cmdlet, but this script wraps Select-String and provides match highlighting on top of the searching capabilities.
+   * Automation of tasks with PowerShell
+      + 参考
+         - [Automation of tasks with PowerShell](https://docs.microsoft.com/en-us/power-platform/admin/wp-task-automation-powershell)<br>
+
    * 脚本执行模式
       1. Use single quotes or double quotes - 在PowerShell App中或Cmd终端中适用
          + 命令格式：
