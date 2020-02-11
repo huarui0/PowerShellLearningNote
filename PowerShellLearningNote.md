@@ -259,6 +259,13 @@
    * about_Logical_Operators
       + 参考
          - [about_Logical_Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-7.x)<br>
+            * The standard logical operators are listed in the following table.
+               + | Logical Operator | Meaning | Example (returns true) |
+                 |--------|---------|---------------|
+                 | -and	| Logical and; true if both sides are true |	(1 -eq 1) -and (2 -eq 2) |
+|-or |	Logical or; true if either side is true |	(1 -eq 1) -or (1 -eq 2) |
+|-not |	Logical not; reverses true and false |	-not (1 -eq 2) |
+|! |	Logical not; reverses true and false |	!(1 -eq 2) |
    * About Operator Precedence
       + [About Operator Precedence](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operator_precedence?view=powershell-7.x)<br>
    * Regular Expressions in PowerShell
