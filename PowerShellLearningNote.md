@@ -323,6 +323,8 @@
             * ParameterSetName argument
                + >The ParameterSetName argument specifies the parameter set to which a parameter belongs. If no parameter set is specified, the parameter belongs to all the parameter sets defined by the function. Therefore, to be unique, each parameter set must have at least one parameter that isn't a member of any other parameter set.
             * Switch parameters
+               + 参考
+                  - [How to pass a switch parameter to another PowerShell script?](https://config9.com/windows/powershell/how-to-pass-a-switch-parameter-to-another-powershell-script/)<br>
                + >Switch parameters are parameters with no parameter value. They're effective only when they're used and have only one effect.
                  >
                  >For example, the NoProfile parameter of powershell.exe is a switch parameter.
