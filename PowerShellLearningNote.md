@@ -533,6 +533,10 @@
       + [Help with passing arguments with Invoke-Command (I am using -ArgumentList)](https://powershell.org/forums/topic/help-with-passing-arguments-with-invoke-command-i-am-using-argumentlist/)<br>
       + [Portable Modules](https://docs.microsoft.com/en-us/powershell/scripting/learn/writing-portable-modules?view=powershell-7.x) - 功能强大，后续学习<br>
       + [Running Remote Commands](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-7.x)<br>
+      + [Invoke-Command and Remote Variables](https://www.pdq.com/blog/invoke-command-and-remote-variables/)<br>
+      + [Invoke-Command: The Best Way to Run Remote Code](https://adamtheautomator.com/invoke-command-remote/)<br>
+      + [Sitecore PowerShell Extensions Remoting variables not working in Octopus Deploy](https://sitecore.stackexchange.com/questions/10757/sitecore-powershell-extensions-remoting-variables-not-working-in-octopus-deploy)<br>
+      + [Splatting Parameters Pt 2 – Remote Possibilities](https://mjolinor.wordpress.com/2014/01/24/splatting-parameters-pt-2-remote-possibilities/)<br>
       + [Create your first PowerShell function in Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-powershell)<br>
 # Linux及MacOS
 ## Bash Shell script
