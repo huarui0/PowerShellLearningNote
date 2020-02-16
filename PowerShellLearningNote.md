@@ -291,6 +291,8 @@
             * >The PowerShell Function provider lets you get, add, change, clear, and delete the functions and filters in PowerShell.
          - [About Functions Advanced](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-7)<br>
          - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7)<br>
+            * ParameterSetName argument
+               + >The ParameterSetName argument specifies the parameter set to which a parameter belongs. If no parameter set is specified, the parameter belongs to all the parameter sets defined by the function. Therefore, to be unique, each parameter set must have at least one parameter that isn't a member of any other parameter set.
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
