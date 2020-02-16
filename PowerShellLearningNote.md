@@ -293,6 +293,21 @@
          - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7)<br>
             * ParameterSetName argument
                + >The ParameterSetName argument specifies the parameter set to which a parameter belongs. If no parameter set is specified, the parameter belongs to all the parameter sets defined by the function. Therefore, to be unique, each parameter set must have at least one parameter that isn't a member of any other parameter set.
+            * Switch parameters
+               + >Switch parameters are parameters with no parameter value. They're effective only when they're used and have only one effect.
+                 >
+                 >For example, the NoProfile parameter of powershell.exe is a switch parameter.
+                 >
+                 >To create a switch parameter in a function, specify the Switch type in the parameter definition.
+               + >Switch parameters are easy to use and are preferred over Boolean parameters, which have a more difficult syntax.
+                 >
+                 >For example, to use a switch parameter, the user types the parameter in the command.
+                 >
+                 >`-IncludeAll`
+                 >To use a Boolean parameter, the user types the parameter and a Boolean value.
+                 >`-IncludeAll:$true`
+                 >
+                 >When creating switch parameters, choose the parameter name carefully. Be sure that the parameter name communicates the effect of the parameter to the user. Avoid ambiguous terms, such as Filter or Maximum that might imply a value is required.
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
