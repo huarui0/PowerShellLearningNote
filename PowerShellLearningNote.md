@@ -79,13 +79,13 @@
       
       + Samples
          - 仅搜索文件夹的脚本
-            1.使用 -Dicrctory
+            1. 使用 -Dicrctory
             ```powershell
-                PS C:\Users\wanglai> Get-ChildItem -Directory 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
+                Get-ChildItem -Directory 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
             ```
             2. 使用 -Attributes 'Directory' 也可以不用 '': -Attributes Directory
             ```powershell
-                PS C:\Users\wanglai> Get-ChildItem -Path 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Attributes Directory -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
+                Get-ChildItem -Path 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Attributes Directory -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
             ```
    * 批量拷贝复制文件和文件夹的操作
       + 参考
