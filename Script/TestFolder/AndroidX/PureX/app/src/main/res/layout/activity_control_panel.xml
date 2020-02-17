@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:scrollIndicators="right"
+            android:verticalScrollbarPosition="right">
+
+            <!--android:background="@color/colorViewBackground"-->
+
+            <RelativeLayout
+                android:id="@+id/control_panel_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+                <!--android:gravity="left"-->
+                <Button
+                    android:id="@+id/control_panel_return_button_test"
+                    android:layout_width="@dimen/small_button_size"
+                    android:layout_height="@dimen/small_button_size"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/controls_margin"
+                    android:layout_marginBottom="@dimen/controls_margin"
+
+                    android:background="@drawable/play_return"
+                    android:gravity="left" />
+
+                <Button
+                    android:id="@+id/control_panel_forward_button_test"
+                    android:layout_width="@dimen/small_button_size"
+                    android:layout_height="@dimen/small_button_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginRight="@dimen/controls_margin"
+                    android:layout_marginBottom="@dimen/controls_margin"
+                    android:background="@drawable/play"
+                    android:clickable="true"
+
+                    android:contentDescription="icon"
+                    android:gravity="right" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/control_panel_textView_Welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_buttonPanelTest"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/WelcomeScreen_Caption"
+                android:textColor="#b53701"
+                android:textSize="42sp" />
+
+
+            <ScrollView
+                android:id="@+id/control_panel_ScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/control_panel_textView_Welcome"
+
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_layout_flow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/control_panel_buttonAniPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_textView_Welcome"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_first_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_play_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_first_button_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_play_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="国家列表"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_second_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_bounce_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="产品信息"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_second_button_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_bounce_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="产品信息"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_third_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_recipe_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_third_button_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_recipe_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="食谱"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_forth_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_students_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="学生信息"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_forth_button_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_students_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="学生信息"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/control_panel_r2_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_buttonAniPanelTest"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r2l1_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r2l1_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r2l1_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r2l1_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="投票信息"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r2l2_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r2l2_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="PostSQLite"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r2l2_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r2l2_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="PostSQLite"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r2l3_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r2l3_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r2l3_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r2l3_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="FoodSQLite"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r2l4_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r2l4_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="相册"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_brown" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r2l4_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r2l4_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Albums\nCardView"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_brown" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/control_panel_r3_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_r2_buttonPanelTest"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r3l1_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r3l1_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r3l1_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r3l1_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="Image Slider"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r3l2_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r3l2_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="产品MySQL"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r3l2_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r3l2_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="产品MySQL"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r3l3_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r3l3_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r3l3_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r3l3_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="产品管理"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r3l4_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r3l4_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="电影/游戏"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r3l4_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r3l4_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="TabsSwipe"
+                        android:textColor="@color/accent_red" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/control_panel_r4_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_r3_buttonPanelTest"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r4l1_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r4l1_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r4l1_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r4l1_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="MaterialTabs"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r4l2_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r4l2_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="Material\nDesign"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r4l2_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r4l2_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Material\nDesign"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r4l3_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r4l3_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r4l3_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r4l3_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nBasic"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r4l4_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r4l4_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r4l4_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r4l4_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/control_panel_r5_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_r4_buttonPanelTest"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r51_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r51_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r51_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r51_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="MaterialTabs"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r52_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r52_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="ListView\nSwipeRefresh"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_brown" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r52_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r52_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="ListView\nSwipeRefresh"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_brown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r53_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r53_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r53_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r53_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nBasic"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r54_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r54_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r54_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r54_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/control_panel_r6_buttonPanelTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/control_panel_r5_buttonPanelTest"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r61_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r61_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r61_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r61_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:text="61_Material\nTabs"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r62_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r62_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="Material\nDesign"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r62_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r62_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Material\nDesign"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r63_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r63_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="@drawable/play"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r63_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r63_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nBasic"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/control_panel_r64_buttonPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_textView_Welcome"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/control_panel_r64_button_test"
+                        android:layout_width="@dimen/mid_button_size"
+                        android:layout_height="@dimen/mid_button_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/controls_margin"
+                        android:layout_marginTop="@dimen/controls_margin"
+                        android:layout_marginRight="@dimen/controls_margin"
+                        android:layout_marginBottom="@dimen/controls_margin"
+                        android:background="#FFA400"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                    <TextView
+                        android:id="@+id/control_panel_r64_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/control_panel_r64_button_test"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fragment\nVariable"
+                        android:textAlignment="center"
+                        android:textColor="@color/accent_red" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!-- Duration controls -->
+
+                <TextView
+                    android:id="@+id/control_panel_text_view_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_buttonPanelTest"
+                    android:layout_centerHorizontal="true" />
+
+                <SeekBar
+                    android:id="@+id/control_panel_seek_bar_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_text_view_duration"
+                    android:max="49"
+                    android:thumbTint="@color/colorSeekThumbTint" />
+
+                <!-- Amplitude controls -->
+
+                <TextView
+                    android:id="@+id/control_panel_text_view_amplitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_seek_bar_duration"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/controls_margin" />
+
+                <SeekBar
+                    android:id="@+id/control_panel_seek_bar_amplitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_text_view_amplitude"
+                    android:max="199"
+                    android:thumbTint="@color/colorSeekThumbTint" />
+                <!--android:progressTint="@color/design_default_color_primary_dark"-->
+
+                <!-- Frequency controls -->
+
+                <TextView
+                    android:id="@+id/control_panel_text_view_frequency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_seek_bar_amplitude"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/controls_margin" />
+
+                <SeekBar
+                    android:id="@+id/control_panel_seek_bar_frequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/control_panel_text_view_frequency"
+                    android:max="199" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="action_favorite">action_favorite</string>
+    <string name="action_settings">action_settings</string>
+    <string name="red_string">红</string>
+    <string name="blue_string">蓝</string>
+    <string name="green_string">绿</string>
+
+    <string name="hello">Hello World, Todo!</string>
+    <!-- <string name="app_name">Todo</string> -->
+    <string name="no_todos">Currently there are no Todo items maintained</string>
+    <string name="menu_insert">Add Item</string>
+    <string name="menu_delete">Delete Todo</string>
+    <string name="todo_summary">Summary</string>
+    <string name="todo_description">Delete Todo</string>
+    <string name="todo_edit_summary">Summary</string>
+    <string name="todo_edit_description">Description</string>
+    <string name="todo_edit_confirm">Confirm</string>
+
+    <string name="hint_title">我家的物品类别</string>
+    <string name="hint_amount">1</string>
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font name="lobster_normal"
+        android:font="@font/lobster"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font  name="lobster_italic"
+        android:font="@font/lobster"
+        android:fontStyle="italic"
+        android:fontWeight="400" />
+
+    <font
+        android:font="@font/dancing_script"
+        android:fontStyle="italic"
+        android:fontWeight="600" />
+
+    <font android:font="@font/lobster" android:fontWeight="400" android:fontStyle="normal"
+        app:font="@font/lobster" app:fontWeight="400" app:fontStyle="normal"/>
+
+    <font android:font="@font/lobster" android:fontWeight="400" android:fontStyle="italic"
+        app:font="@font/lobster" app:fontWeight="400" app:fontStyle="italic"/>
+
+    <font android:font="@font/archivo_medium" android:fontWeight="500" android:fontStyle="normal"
+        app:font="@font/archivo_medium" app:fontWeight="500" app:fontStyle="normal"/>
+
+    <font android:font="@font/archivo_narrow_medium_italic" android:fontWeight="500" android:fontStyle="italic"
+        app:font="@font/archivo_narrow_medium_italic" app:fontWeight="500" app:fontStyle="italic"/>
+
+    <font android:font="@font/archivo_semibold" android:fontWeight="600" android:fontStyle="normal"
+        app:font="@font/archivo_semibold" app:fontWeight="600" app:fontStyle="normal"/>
+
+    <font android:font="@font/archivo_semibold_italic" android:fontWeight="600" android:fontStyle="italic"
+        app:font="@font/archivo_semibold_italic" app:fontWeight="600" app:fontStyle="italic"/>
+
+    <font android:font="@font/archivo_bold" android:fontWeight="700" android:fontStyle="normal"
+        app:font="@font/archivo_bold" app:fontWeight="700" app:fontStyle="normal"/>
+
+    <font android:font="@font/archivo_bold_italic" android:fontWeight="700" android:fontStyle="italic"
+        app:font="@font/archivo_bold_italic" app:fontWeight="700" app:fontStyle="italic"/>
+
+
+</font-family>

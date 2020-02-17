@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name_product">Remote MySQL Connection</string>
+    <string name="view_all">View All Products</string>
+    <string name="add_new">Add New Product</string>
+    <string name="title_activity_product_update_delete">ProductUpdateDeleteActivity</string>
+    <string name="title">Title</string>
+    <string name="shortdesc">ShortDesc</string>
+    <string name="rating">Rating</string>
+    <string name="price">Price</string>
+    <string name="image">Image</string>
+
+</resources>

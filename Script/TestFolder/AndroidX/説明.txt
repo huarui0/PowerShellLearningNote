@@ -1,0 +1,6 @@
+其中：master来自glide源码
+PueX_BAK为false的部分
+PureX_Legacy为通过gradle引用的方式
+
+
+cardslib-master_stock_ONLY 非常好！只是 cardslib 的 stock

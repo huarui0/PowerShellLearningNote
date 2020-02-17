@@ -1,0 +1,33 @@
+This is default name
+oks : The term 'oks' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:115
++ ... 1 -DebugPreference SilentlyContinue -LOG_FILE GDGAGnklasj;oks;fk;dkf  ...
++                                                               ~~~
+    + CategoryInfo          : ObjectNotFound: (oks:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+fk : The term 'fk' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:119
++ ... DebugPreference SilentlyContinue -LOG_FILE GDGAGnklasj;oks;fk;dkf lkl ...
++                                                                ~~
+    + CategoryInfo          : ObjectNotFound: (fk:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+dkf : The term 'dkf' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:122
++ ... gPreference SilentlyContinue -LOG_FILE GDGAGnklasj;oks;fk;dkf lkl; -o ...
++                                                               ~~~
+    + CategoryInfo          : ObjectNotFound: (dkf:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+-oName : The term '-oName' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:131
++ ... SilentlyContinue -LOG_FILE GDGAGnklasj;oks;fk;dkf lkl; -oName Name -o ...
++                                                            ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (-oName:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 

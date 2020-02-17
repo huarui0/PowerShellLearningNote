@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.inazaruk.shared.ui.actionscontentview.ActionsContentView
+        android:id="@+id/actionsContentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:actions_layout="@layout/inazaruk_actionscontentview_effect_actions"
+        custom:actions_spacing="0dp"
+        custom:content_layout="@layout/inazaruk_actionscontentview_effect_content"
+        custom:effect_content="@anim/effect_alpha_content"
+        custom:fade_max_value="@integer/default_pref_fade_max_value"
+        custom:fade_type="none"
+        custom:spacing="0dp"
+        custom:swiping_type="full"
+        custom:fling_duration="@integer/default_pref_fling_delay" />
+</LinearLayout>
+
+
+
+
+
+

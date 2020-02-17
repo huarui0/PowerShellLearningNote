@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/selectableItemBackground" >
+
+    <Button
+        android:id="@+id/toggle_all_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle All Group" />
+
+    <Button
+        android:id="@+id/toggle_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toggle_all_button"
+        android:text="Toggle Classic Group" />
+
+    <RadioGroup
+        android:id="@+id/rg_contropanel_Operations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_below="@id/toggle_all_button">
+
+        <!--android:gravity="center"-->
+
+        <!--android:layout_alignBottom="@+id/toggle_all_button"-->
+
+        <RadioButton
+            android:id="@+id/rb_contropanel_Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Delete" />
+
+        <RadioButton
+            android:id="@+id/rb_contropanel_Add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <RadioButton
+            android:id="@+id/rb_contropanel_Change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change" />
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_contropanel_Operations" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycler_view" >
+
+        <CheckBox
+            android:id="@+id/cb_contropanel_Predictive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Predictive Animations" />
+
+        <CheckBox
+            android:id="@+id/cb_contropanel_CustomAnimator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Custom Animator" />
+    </LinearLayout>
+
+</RelativeLayout>

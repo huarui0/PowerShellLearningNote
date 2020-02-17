@@ -1,0 +1,2 @@
+Set-Content -Path 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file_sample2.txt' -Value 'foo bar baz sample2'
+(Get-Content -Path 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file_sample2.txt').replace('foo', 'bar') | Set-Content -Path 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\file_sample2.txt'

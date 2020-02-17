@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingBottom="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/list_item_date_textview_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Today"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/list_item_date_textview_new"
+        android:layout_toEndOf="@+id/list_item_date_textview_new"
+        android:text=" - "
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/list_item_forecast_textview_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView8"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Clear"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/list_item_forecast_textview_new"
+        android:layout_toEndOf="@+id/list_item_forecast_textview_new"
+        android:text=" - "
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/list_item_high_textview_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView9"
+        android:fontFamily="sans-serif-light"
+        android:text="22"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/list_item_high_textview_new"
+        android:text=" / "
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/list_item_low_textview_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView10"
+        android:fontFamily="sans-serif-light"
+        android:text="12"
+        android:textSize="22sp" />
+
+</LinearLayout>

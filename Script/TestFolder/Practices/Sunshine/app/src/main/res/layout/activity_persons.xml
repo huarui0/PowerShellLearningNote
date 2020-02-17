@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="CreateDatabase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCreateDatabase" />
+
+    <Button
+        android:text="InsertRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnInsertRecord" />
+
+    <Button
+        android:text="DeleteRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDeleteRecord" />
+
+    <Button
+        android:text="ChangeRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnChangeRecord" />
+
+    <Button
+        android:text="QuerySingleRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnQuerySingleRecord" />
+
+    <Button
+        android:text="QueryAllRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnQueryAllRecord" />
+</LinearLayout>

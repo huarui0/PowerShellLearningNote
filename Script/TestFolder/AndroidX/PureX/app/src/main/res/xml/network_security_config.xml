@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.1.102</domain>
+        <domain includeSubdomains="true">192.168.0.15</domain>
+        <domain includeSubdomains="true">192.168.0.74</domain>
+        <domain includeSubdomains="true">172.20.10.3</domain>
+
+        <domain includeSubdomains="true">nplix.com</domain>
+        <domain includeSubdomains="true">example.com</domain>
+        <domain includeSubdomains="true">cbdio.com</domain>
+
+        <domain includeSubdomains="true">www.delish.com</domain>
+        <domain includeSubdomains="true">www.seriouseats.com</domain>
+        <domain includeSubdomains="true">www.epicurious.com</domain>
+        <domain includeSubdomains="true">www.deliciousdays.com</domain>
+        <domain includeSubdomains="true">www.marthastewart.com</domain>
+
+    </domain-config>
+
+</network-security-config>

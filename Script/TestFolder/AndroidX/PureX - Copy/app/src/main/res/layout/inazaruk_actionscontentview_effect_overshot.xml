@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2013 Steven Rudenko
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<com.inazaruk.shared.ui.actionscontentview.ActionsContentView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/actionsContentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    custom:actions_layout="@layout/inazaruk_actionscontentview_effect_actions"
+    custom:actions_spacing="0dp"
+    custom:content_layout="@layout/inazaruk_actionscontentview_effect_content"
+    custom:effect_content="@array/overshot_effect"
+    custom:effects="fling_opening"
+    custom:effects_interpolator="@android:anim/linear_interpolator"
+    custom:fade_max_value="@integer/default_pref_fade_max_value"
+    custom:fade_type="actions"
+    custom:fling_duration="@integer/default_pref_fling_delay"
+    custom:shadow_drawable="@drawable/inazaruk_actionscontentview_shadow"
+    custom:shadow_width="@dimen/default_pref_shadow_width"
+    custom:spacing="128dp"
+    custom:swiping_type="full" />

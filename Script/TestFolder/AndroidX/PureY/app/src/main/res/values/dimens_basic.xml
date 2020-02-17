@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="controls_margin">16dp</dimen>
+    <dimen name="controls_margin_large">32dp</dimen>
+    <dimen name="controls_margin_max">92dp</dimen>
+    <dimen name="button_size">92dp</dimen>
+    <dimen name="mid_button_size">64dp</dimen>
+    <dimen name="small_button_size">32dp</dimen>
+    <dimen name="tiny_button_size">16dp</dimen>
+</resources>

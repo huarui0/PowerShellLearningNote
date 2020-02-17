@@ -1,0 +1,11 @@
+﻿FilePaths,ObjectPropertyColor,,
+E:\AndroidDev\AndroidStudioProjects\AndroidX,DarkRed,,
+E:\AndroidDev\AndroidStudioProjects\Examples,Magenta,,
+,,,
+where,,,
+文件类型,,,
+,某种类型,*.pdf,
+,某些类型,"*.pdf, *.jpg",
+时间,,,
+,某个时间点,‘=-eq,2015
+,某个时间段,,
