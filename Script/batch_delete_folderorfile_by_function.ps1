@@ -77,7 +77,7 @@ function WriteToFileByTempFile {
         [Parameter(Mandatory = $true)]
         [string] $replace
     )
-    
+
     $tempFilePath = "$env:TEMP\$($FilePath | Split-Path -Leaf)"
 
     (Get-Content -Path $FilePath) -replace $find, $replace | Add-Content -Path $tempFilePath
@@ -203,9 +203,9 @@ function Batch_Delete_FolderOrFile {
 
                     Write-Host ("第一个循环`$using:ForceMode = $using:ForceMode")
 
-                    Write-Host "第一个循环`$ForceMode.IsPresent =" ($ForceMode.IsPresent)
+                    Write-Host "第一层循环`$ForceMode.IsPresent =" ($ForceMode.IsPresent)
 
-                    Write-Host "第个一循环`$using:ForceMode.IsPresent =" ($using:ForceMode.IsPresent)
+                    Write-Host "第一层循环`$using:ForceMode.IsPresent =" ($using:ForceMode.IsPresent)
 
                     Write-Host ([string]::IsNullOrEmpty($actionMode))
                     Write-Host ([string]::IsNullOrEmpty($using:actionMode))
@@ -217,10 +217,8 @@ function Batch_Delete_FolderOrFile {
                         Write-Host "开始1"
 
 
-                        # 在本session中重新赋值为上个session的值，特别重要
+                        # 在本session中重新赋值为上个session的值，特别重要. 但是 重新赋值的无法传递，名称冲突的缘故？
                         $ForceMode = $using:ForceMode
-
-
 
                         # $using:ForceMode 无法传递，暂时添加 $ForceDelete
                         # 特别特别重要：必须在 param () 中预先定义（变量的Scope概念）
@@ -290,24 +288,24 @@ function Batch_Delete_FolderOrFile {
 }
 
 # 更新一批文件夹中相同文件的例子
-# Batch_FindandReplace_IntTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
+# Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
 
 # 仅更新一个文件夹中相同文件的例子
-# Batch_FindandReplace_IntTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
+# Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
 
 # 仅更新一个文件的例子
-# Batch_FindandReplace_IntTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX\PureX\gradle\wrapper\gradle-wrapper.properties' -Find 'gradle-6.1-rc-1-all.zip'  -Replace 'gradle-6.1-rc-3-all.zip'
+# Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX\PureX\gradle\wrapper\gradle-wrapper.properties' -Find 'gradle-6.1-rc-1-all.zip'  -Replace 'gradle-6.1-rc-3-all.zip'
 
 # 查找的例子
 # $FilePath
 # $Find
-# Batch_FindandReplace_IntTextFile -FilePath $FilePath -Find $Find
-# Batch_FindandReplace_IntTextFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\AndroidX','E:\AppPractice' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip'
+# Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
+# Batch_FindandReplace_InTextFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\AndroidX','E:\AppPractice' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip'
 
 # 查找文件夹的例子
 # $FilePath
 # $Find
-# Batch_FindandReplace_IntTextFile -FilePath $FilePath -Find $Find
+# Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
 
 Batch_Delete_FolderOrFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\Practices'  -Find "build" -actionMode 'delete'  -ForceMode:$false
 
