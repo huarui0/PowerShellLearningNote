@@ -2,7 +2,7 @@
 # 
 
 param(
-    [String]$LOG_FILE = 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\default.log',
+    [String]$LOG_FILE = 'E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\default.log',
     [String]$oName = 'default name',
     [String]$oStart = $(Get-date -F "yyyyMMdd HH:mm:ss.ms"),
     [Int]$oStatus = 0,

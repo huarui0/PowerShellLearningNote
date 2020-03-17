@@ -307,9 +307,10 @@ function Batch_Delete_FolderOrFile {
 # $Find
 # Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
 
-Batch_Delete_FolderOrFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\Practices'  -Find "build" -actionMode 'delete'  -ForceMode:$false
+# Batch_Delete_FolderOrFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShell\Script\TestFolder\Practices'  -Find "build" -actionMode 'delete'  -ForceMode:$false
 
 
+Batch_Delete_FolderOrFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Examples\Android4.0'  -Find "architecture-components-samples-master" -actionMode 'delete'  -ForceMode:$true
 
 
 

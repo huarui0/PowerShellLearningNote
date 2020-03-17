@@ -167,6 +167,7 @@ function Batch_FindandReplace_InTextFile {
         # 注：只是 $Find 用正则表达式，$Replace 一定是正确的数据，所以不可能是正则表达表达式
         # $Replace = [regex]::Escape($Replace)
     }
+
     process {
         try {
             Import-Csv .\TestFolder\Excel_Test.csv
@@ -494,11 +495,12 @@ function Batch_FindandReplace_InTextFile {
 # 直接用更新的源文件拷贝到一批指定的文件夹的例子（如果文件夹中有文件，则直接覆盖）
 # 事实上，OriginalFilePath （定义为 Container） 就是 SourceFilePath（定义为Leaf）
 # FileName 既可以是文件夹，也可以是文件，如果是文件夹，就搜索包含该名称的文件夹，如果是文件，就搜索包含该名称的文件。
-# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-7-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
+# 测试用这个
+# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-4-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
 # 正式
-Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-7-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
+Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.2-rc-3-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
 
@@ -519,6 +521,10 @@ Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\Powe
 # $Find
 # Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
 # Batch_FindandReplace_InTextFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\AndroidX','E:\AppPractice' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip'
+
+Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes','E:\Docs' -FileName "*" -Find 'error-message'
+
+
 
 # 查找文件夹的例子
 # $FilePath
