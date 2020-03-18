@@ -132,6 +132,9 @@ function CopySourceFolderToDestination {
         [string]$SourceFolderContents,
         [Parameter(Mandatory=$false)]
         [Switch]
+        $isCopyFolderContents,
+        [Parameter(Mandatory=$false)]
+        [Switch]
         $ForceOverride
     )
 
@@ -151,50 +154,66 @@ function CopySourceFolderToDestination {
         try {
             # 如果要拷贝的源文件夹所在的目标父文件夹存在
             if (Test-Path -Path $DistinationParentFolder -PathType 'Container') {
-                
-
-                if ($NewDistinationFolderName) {
-                    $DistinationFolder = Join-String -Separator '\' -InputObject $DistinationParentFolder, $NewDistinationFolderName
-                } else {
-
-                    # $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf -Resolve
-                    $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf
-
-                    $DistinationFolder = Join-String -Separator '\' -InputObject $DistinationParentFolder, $SourceFolderName
-
-                }
-
-                $SourceFolderContents = Join-String -Separator '\' -InputObject $SourceFolder, "*"
-
 
                 if (Test-Path -Path $SourceFolder -PathType 'Container') {
+                    if ($NewDistinationFolderName) {
+                        $DistinationFolder = Join-String -Separator '\' -InputObject $DistinationParentFolder, $NewDistinationFolderName
+                    } else {
+
+                        # $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf -Resolve
+                        $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf
+
+                        $DistinationFolder = Join-String -Separator '\' -InputObject $DistinationParentFolder, $SourceFolderName
+
+                    }
+                    if (Test-Path -Path $DistinationFolder -PathType 'Container') {
+                        Write-Host "目标文件夹已存在: $DistinationFolder，继续..." -ForegroundColor Red
+                    } else {  # 不存在，就先创建！！
+                        Write-Host "目标文件夹不存在: $DistinationFolder ..." -ForegroundColor Red
+
+                        # 先将顶层空文件夹拷贝到目标文件夹下 - 以下两种方法都正确！！！
+
+                        Write-Host "先将顶层空文件夹拷贝到目标文件夹下: $DistinationFolder ..." -ForegroundColor Red
+
+                        # Copy-Item $SourceFolder $DistinationParentFolder -Filter {PSIsContainer} -Force
+
+                        # 上句不能用（需要将文件名用新的文件名 组成 新的 SourceFolder），要用下句
+                        
+                        New-Item $DistinationFolder -type directory
+
+                    }
+
                     # 这个判断 暂时不处理。。。
                     if ($ForceOverride) {
+
                     } else {
                         Write-Warning "The folder at '$DistinationFolder' exists and the -Force param was not used"
                     }
 
-                    if (Test-Path -Path $DistinationFolder -PathType 'Container') {
+                    # 因为如果是拷贝成新的文件夹名，不用isCopyFolderContents 也同样，所有放这里。
+                    $SourceFolderContents = Join-String -Separator '\' -InputObject $SourceFolder, "*"
+
+                    if ($isCopyFolderContents) {
+
+                        # $SourceFolderContents = Join-String -Separator '\' -InputObject $SourceFolder, "*"
+
+                        # 将文件夹的所有内容拷贝到目标文件夹下
+                        Copy-Item $SourceFolderContents $DistinationFolder -Recurse -Force
+
+                    } else { # 如果是Copy后，更名为新的文件夹名，则需要用$isCopyFolderContents里的方法
+                        if ($NewDistinationFolderName) {
                             # 将文件夹的所有内容拷贝到目标文件夹下
                             Copy-Item $SourceFolderContents $DistinationFolder -Recurse -Force
+                        } else {
+                            # 啰嗦，不要
+                            # $SourceFolderContents = $SourceFolder
+                            # Copy-Item $SourceFolderContents $DistinationParentFolder -Recurse -Force
 
-                    } else {
-                            Write-Host "目标文件夹不存在: $DistinationFolder ..." -ForegroundColor Red
-
-                            # 先将顶层空文件夹拷贝到目标文件夹下 - 以下两种方法都正确！！！
-
-                            Write-Host "先将顶层空文件夹拷贝到目标文件夹下: $DistinationFolder ..." -ForegroundColor Red
-
-                            # Copy-Item $SourceFolder $DistinationParentFolder -Filter {PSIsContainer} -Force
-                            
-                            # 上句不能用（需要将文件名用新的文件名 组成 新的 SourceFolder），要用下句
-                            
-                            New-Item $DistinationFolder -type directory
-
-                            # 再将文件夹的所有内容拷贝到目标文件夹下
-                            Copy-Item $SourceFolderContents $DistinationFolder -Recurse -Force
-
+                            # 将文件夹的所有内容拷贝到目标文件夹下 - 注意直接将源文件夹拷贝的父文件夹，即可！
+                            Copy-Item $SourceFolder $DistinationParentFolder -Recurse -Force
+                        }
                     }
+
 
                 } else {
                     Write-Host "源文件夹不存在: $SourceFolder ..." -ForegroundColor Red
@@ -210,13 +229,14 @@ function CopySourceFolderToDestination {
     }
 }
 
-# 正式
-# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName "S05.01-Solution-AsyncTaskLoader"
+# 正式 - 将文件夹Copy到ParentFolder下，并更名 - 更名不能直接拷贝文件夹，用 -isCopyFolderContents 的方法 -- 不用也可以，但要有 -NewDistinationFolderName
+# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName "S05.01-Solution-AsyncTaskLoader" -isCopyFolderContents:$true
 
 
-
-
-
+# 正式 - 直接将文件夹Copy到ParentFolder下  - 正确！
+# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true
+# 正式-第二种 - 拷贝内容到文件夹下，-正确，注意：DistinationParentFolder都是ParentFolder
+# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true -isCopyFolderContents:$true
 
 function DeleteDesignatedFolderContents {
     <#
@@ -268,10 +288,10 @@ function DeleteDesignatedFolderContents {
 
                     Remove-Item -Path $FolderContents  -Recurse  -Force
 
-                    # 有问题，不能用
+                    # 有问题，不能用 - 是不是 Get-ChildItem 中的 -Recurse 不要， Remove-Item 的 -Recurse 就可以了。 --> 待验证
                     # Get-ChildItem -Path $DesignatedFolder -Recurse | Remove-Item $_ -Recurse -Force
 
-<# 有问题，不能用
+<# 有问题，不能用  - 是不是 Get-ChildItem 中的 -Recurse 不要， Remove-Item 的 -Recurse 就可以了。 --> 待验证
                     Get-ChildItem -Path $DesignatedFolder -Recurse | ForEach-Object -Parallel {
                         Remove-Item -Path $_  -Recurse  -Force
                     } -ThrottleLimit 4
@@ -298,4 +318,4 @@ function DeleteDesignatedFolderContents {
 }
 
 # 正式
-DeleteDesignatedFolderContents -DesignatedFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -isDeleteFolderContents:$true -ForceDelete:$true
+# DeleteDesignatedFolderContents -DesignatedFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -isDeleteFolderContents:$true -ForceDelete:$true

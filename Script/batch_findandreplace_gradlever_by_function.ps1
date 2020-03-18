@@ -499,8 +499,8 @@ function Batch_FindandReplace_InTextFile {
 # Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-4-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
-# 正式
-Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.2-rc-3-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
+# 正式 正确
+# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.2-rc-3-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
 
