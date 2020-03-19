@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="rate_sqlite_delete_first">Delete First</string>
-    <string name="rate_sqlite_add_new">Add New</string>
-</resources>

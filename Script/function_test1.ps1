@@ -12,5 +12,5 @@ function Get-Square([int]$x) {
 HelloWorld
 
 $x = Read-Host 'Enter a value'
-$sqres = Get-Square $x
+$sqres = Get-Square -x $x
 Write-Output "$x * $x = $sqres"

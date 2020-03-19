@@ -1,3 +1,0 @@
-rootProject.name = "SunShineX"
-include ':app'
-// include ':app', ':lib', ':benchmark'
