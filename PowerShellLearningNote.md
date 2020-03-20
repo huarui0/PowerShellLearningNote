@@ -561,15 +561,17 @@
 
 ### PowerShell Module 的 实践
    * 官网参考
-   
+      - [Understanding a Windows PowerShell Module](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.x) - 准备知识学习<br>
+      - [了解 Windows PowerShell 模块](https://docs.microsoft.com/zh-cn/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.x)<br>
+      -
    * 实践步骤
       + 路线图
       ```
-         
          编写 Windows PowerShell 模块 --> 如何编写 PowerShell 脚本模块 ---> [可选]如何编写 PowerShell 模块清单 --> 安装 PowerShell 模块 --> 导入 PowerShell 模块 --> 修改 PSModulePath 安装路径
                                     |
                                     --> 如何编写 PowerShell 二进制模块 --> 暂不考虑   
       ```
+
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
