@@ -341,6 +341,7 @@
                  >
                  >When creating switch parameters, choose the parameter name carefully. Be sure that the parameter name communicates the effect of the parameter to the user. Avoid ambiguous terms, such as Filter or Maximum that might imply a value is required.
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
+         - [Approved Verbs for PowerShell Commands](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
          - [PowerShell Function: Syntax, Parameters, Examples](https://www.itechguides.com/powershell-function-syntax-parameters-examples/)<br>
