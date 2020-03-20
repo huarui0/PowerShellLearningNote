@@ -377,12 +377,16 @@
 
       + **专题：如何从一个Function（User defined）调用另一个Function（User defined）**
          - 参考
-            * []()<>
+            * [https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x) - 英文版<br>
+            * [导入 PowerShell 模块](https://docs.microsoft.com/zh-cn/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x) - 中文版<br>
+            * [Calling a Function From Another Function in PowerShell](https://code5.cn/so/function/1274565) - InlineScript(PowerShell ScriptBlock) 的用法，不是最好的解决方法<br>
          - 其他参考
-            * 
+            * [Powershell学习笔记——函数和函数库](https://m.w3cschool.cn/xwevd/xwevd-6di3250s.html)<br>
+            * [在PowerShell中，如何在文件中定义函数并从PowerShell命令行调用它？](https://www.itranslater.com/qa/details/2120503661221643264) - 倾向于使用其中的建议：Import-Module 的方法。。。<br>
       + **专题：如何将一个Function（User defined）的参数传递到另一个Function（User defined）**
          - 参考
-            * [PowerShell函数中把参数传入另一个函数的函数传参例子，powershell](http://www.dengb.com/jcjc/854466.html) - 年代久远，但参数传毒的方法可以借鉴，不用的可以清除，然后传递。很好<br> 
+            * [PowerShell函数中把参数传入另一个函数的函数传参例子，powershell](http://www.dengb.com/jcjc/854466.html) - 年代久远，但参数传递的方法可以借鉴，不用的清除掉先，然后传递。很好<br> 
+            * [从 Pipeline 输入函数参数](https://www.cnblogs.com/sparkdev/p/8242167.html)<br>
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
