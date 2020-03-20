@@ -375,7 +375,14 @@
       + 执行方式
          1. 在脚本中直接调用- 例子见 Sample 1.  - 执行方法参照 【脚本执行模式】
 
-
+      + **专题：如何从一个Function（User defined）调用另一个Function（User defined）**
+         - 参考
+            * []()<>
+         - 其他参考
+            * 
+      + **专题：如何将一个Function（User defined）的参数传递到另一个Function（User defined）**
+         - 参考
+            * [PowerShell函数中把参数传入另一个函数的函数传参例子，powershell](http://www.dengb.com/jcjc/854466.html) - 年代久远，但参数传毒的方法可以借鉴，不用的可以清除，然后传递。很好<br> 
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
