@@ -1,7 +1,7 @@
 # Windows
 ## PowerShell & VBScript
    * 学习路线图
-      + --> ... --> Function --> Provider --> ...
+      + --> ... --> Function --> Provider --> ...-->Module...
    * 安装
       + 下载地址
          - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
@@ -191,6 +191,7 @@
                    Remove-Item -Path $filePath
                    Move-Item -Path $tempFilePath -Destination $filePath
                ```
+### 
 ### 知识点总结
    * Understanding file encoding in VSCode and PowerShell
       + 官网参考
@@ -557,6 +558,18 @@
       + [Sitecore PowerShell Extensions Remoting variables not working in Octopus Deploy](https://sitecore.stackexchange.com/questions/10757/sitecore-powershell-extensions-remoting-variables-not-working-in-octopus-deploy)<br>
       + [Splatting Parameters Pt 2 – Remote Possibilities](https://mjolinor.wordpress.com/2014/01/24/splatting-parameters-pt-2-remote-possibilities/)<br>
       + [Create your first PowerShell function in Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-powershell)<br>
+
+### PowerShell Module 的 实践
+   * 官网参考
+   
+   * 实践步骤
+      + 路线图
+      ```
+         
+         编写 Windows PowerShell 模块 --> 如何编写 PowerShell 脚本模块 ---> [可选]如何编写 PowerShell 模块清单 --> 安装 PowerShell 模块 --> 导入 PowerShell 模块 --> 修改 PSModulePath 安装路径
+                                    |
+                                    --> 如何编写 PowerShell 二进制模块 --> 暂不考虑   
+      ```
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
