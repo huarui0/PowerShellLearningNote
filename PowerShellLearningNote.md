@@ -1,7 +1,7 @@
 # Windows
 ## PowerShell & VBScript
    * 学习路线图
-      + --> ... --> Function --> Provider --> ...
+      + --> ... --> Function --> Provider --> ...-->Module...
    * 安装
       + 下载地址
          - [PowerShell/PowerShell](https://github.com/PowerShell/PowerShell)<br>
@@ -191,6 +191,7 @@
                    Remove-Item -Path $filePath
                    Move-Item -Path $tempFilePath -Destination $filePath
                ```
+### 
 ### 知识点总结
    * Understanding file encoding in VSCode and PowerShell
       + 官网参考
@@ -340,6 +341,7 @@
                  >
                  >When creating switch parameters, choose the parameter name carefully. Be sure that the parameter name communicates the effect of the parameter to the user. Avoid ambiguous terms, such as Filter or Maximum that might imply a value is required.
          - [About Functions Advanced Methods](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
+         - [Approved Verbs for PowerShell Commands](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7)<br>
       + 参考
          - [The PowerShell parameter demystified](https://adamtheautomator.com/the-powershell-parameter/)<br>
          - [PowerShell Function: Syntax, Parameters, Examples](https://www.itechguides.com/powershell-function-syntax-parameters-examples/)<br>
@@ -375,7 +377,19 @@
       + 执行方式
          1. 在脚本中直接调用- 例子见 Sample 1.  - 执行方法参照 【脚本执行模式】
 
-
+      + **专题：如何从一个Function（User defined）调用另一个Function（User defined）**
+         - 参考
+            * [https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x) - 英文版<br>
+            * [导入 PowerShell 模块](https://docs.microsoft.com/zh-cn/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.x) - 中文版<br>
+            * [Calling a Function From Another Function in PowerShell](https://code5.cn/so/function/1274565) - InlineScript(PowerShell ScriptBlock) 的用法，不是最好的解决方法<br>
+         - 其他参考
+            * [Powershell学习笔记——函数和函数库](https://m.w3cschool.cn/xwevd/xwevd-6di3250s.html)<br>
+            * [在PowerShell中，如何在文件中定义函数并从PowerShell命令行调用它？](https://www.itranslater.com/qa/details/2120503661221643264) - 倾向于使用其中的建议：Import-Module 的方法。。。<br>
+      + **专题：如何将一个Function（User defined）的参数传递到另一个Function（User defined）**
+         - 参考
+            * [PowerShell函数中把参数传入另一个函数的函数传参例子，powershell](http://www.dengb.com/jcjc/854466.html) - 年代久远，但参数传递的方法可以借鉴，不用的清除掉先，然后传递。很好<br> 
+            * [从 Pipeline 输入函数参数](https://www.cnblogs.com/sparkdev/p/8242167.html)<br>
+            * [powershell脚本，命令行参数传值，并绑定变量的例子](https://www.cnblogs.com/piapia/p/5910255.html) - 了解 CmdletBinding 的使用方法的好例子<br>
    * Script Blocks - 了解与Function的区别
       + 参考
          - [About Script Blocks](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_script_blocks?view=powershell-7)<br>
@@ -527,19 +541,42 @@
              Config = A
              Country = 中国
          ```
-
+### Powershell 的安全性 考虑
+   * 参考
+      - [浅谈powershell - 执行策略](https://www.jianshu.com/p/f728899ea71b)<br>
+      - [针对日本的复杂Powershell恶意脚本分析](https://bbs.pediy.com/thread-251822.htm)<br>
 ### 高级操作
    * 参考
       + [Managing Microsoft PowerApps and Flow Like a Pro – Part 1](https://www.syskit.com/blog/managing-microsoft-powerapps-and-flow-like-a-pro-pt1/)<br>
+      + [Building Asynchronous PowerShell Functions](https://adamtheautomator.com/building-asynchronous-powershell-functions/)<br>
       + [How to pass parameters to the script while calling them inside the provisioner](https://stackoverflow.com/questions/54587146/how-to-pass-parameters-to-the-script-while-calling-them-inside-the-provisioner) - provisioner 不知是啥，后续学习<br>
       + [Help with passing arguments with Invoke-Command (I am using -ArgumentList)](https://powershell.org/forums/topic/help-with-passing-arguments-with-invoke-command-i-am-using-argumentlist/)<br>
       + [Portable Modules](https://docs.microsoft.com/en-us/powershell/scripting/learn/writing-portable-modules?view=powershell-7.x) - 功能强大，后续学习<br>
       + [Running Remote Commands](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-7.x)<br>
       + [Invoke-Command and Remote Variables](https://www.pdq.com/blog/invoke-command-and-remote-variables/)<br>
       + [Invoke-Command: The Best Way to Run Remote Code](https://adamtheautomator.com/invoke-command-remote/)<br>
+      + [Invoke-Expression: The Universal PowerShell Executor Cmdlet (Lots of Examples)](https://adamtheautomator.com/invoke-expression/)<br>
       + [Sitecore PowerShell Extensions Remoting variables not working in Octopus Deploy](https://sitecore.stackexchange.com/questions/10757/sitecore-powershell-extensions-remoting-variables-not-working-in-octopus-deploy)<br>
       + [Splatting Parameters Pt 2 – Remote Possibilities](https://mjolinor.wordpress.com/2014/01/24/splatting-parameters-pt-2-remote-possibilities/)<br>
       + [Create your first PowerShell function in Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-powershell)<br>
+
+### PowerShell Module 的 实践
+   * 官网参考
+      - [Understanding a Windows PowerShell Module](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.x) - 准备知识学习<br>
+      - [了解 Windows PowerShell 模块](https://docs.microsoft.com/zh-cn/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.x)<br>
+      -
+   * 实践步骤
+      + 路线图
+      ```
+         编写 Windows PowerShell 模块 --> 如何编写 PowerShell 脚本模块 ---> [可选]如何编写 PowerShell 模块清单 --> 安装 PowerShell 模块 --> 导入 PowerShell 模块 --> 修改 PSModulePath 安装路径
+                                    |
+                                    --> 如何编写 PowerShell 二进制模块 --> 暂不考虑   
+      ```
+      + 步骤
+         1. 编写 PowerShell 脚本模块
+            - 位置
+               * E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1
+         2. 安装 PowerShell 模块
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
