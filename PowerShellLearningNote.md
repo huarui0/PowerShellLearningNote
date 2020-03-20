@@ -572,7 +572,11 @@
                                     |
                                     --> 如何编写 PowerShell 二进制模块 --> 暂不考虑   
       ```
-
+      + 步骤
+         1. 编写 PowerShell 脚本模块
+            - 位置
+               * E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1
+         2. 安装 PowerShell 模块
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
