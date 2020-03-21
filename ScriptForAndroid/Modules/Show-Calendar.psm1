@@ -35,7 +35,7 @@
    # Highlight a range of days.
    Show-Calendar -HighlightDay (1..10 + 22) -HighlightDate "December 25, 2008"
 #>
-function Show-Calendar {
+function global:Show-Calendar {
     param(
         [DateTime] $start = [DateTime]::Today,
         [DateTime] $end = $start,

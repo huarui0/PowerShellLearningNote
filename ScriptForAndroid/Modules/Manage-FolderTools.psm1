@@ -262,7 +262,7 @@ function Copy-SourceFolderToDestination {
 
                         if ($ForceOverride) {
 # SourceFolderContents 移到子函数中，故不加参数
-                            Sub_CopySourceFolderToDestination -SourceFolder $SourceFolder -NewDistinationFolderName $NewDistinationFolderName -DistinationFolder $DistinationFolder -DistinationParentFolder $DistinationParentFolder -isCopyFolderContents:$isCopyFolderContents
+                            Copy-FolderContents -SourceFolder $SourceFolder -NewDistinationFolderName $NewDistinationFolderName -DistinationFolder $DistinationFolder -DistinationParentFolder $DistinationParentFolder -isCopyFolderContents:$isCopyFolderContents
 
                         } else {
 
@@ -287,7 +287,7 @@ function Copy-SourceFolderToDestination {
 
                         # Sub_CopySourceFolderToDestination -SourceFolder $SourceFolder -SourceFolderContents $SourceFolderContents -NewDistinationFolderName $NewDistinationFolderName -DistinationFolder $DistinationFolder -DistinationParentFolder $DistinationParentFolder -isCopyFolderContents:$isCopyFolderContents
 # SourceFolderContents 移到子函数中，故不加参数
-                        Sub_CopySourceFolderToDestination -SourceFolder $SourceFolder -NewDistinationFolderName $NewDistinationFolderName -DistinationFolder $DistinationFolder -DistinationParentFolder $DistinationParentFolder -isCopyFolderContents:$isCopyFolderContents
+                        Copy-FolderContents -SourceFolder $SourceFolder -NewDistinationFolderName $NewDistinationFolderName -DistinationFolder $DistinationFolder -DistinationParentFolder $DistinationParentFolder -isCopyFolderContents:$isCopyFolderContents
                     }
 
                 } else {
@@ -395,4 +395,4 @@ function Remove-DesignatedFolderContents {
 # 正式
 # DeleteDesignatedFolderContents -DesignatedFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -isDeleteFolderContents:$true -ForceDelete:$true
 
-Export-ModuleMember -Function New-DestinationEmptyFolder, Copy-FolderContents, Copy-SourceFolderToDestination, Remove-DesignatedFolderContents
+Export-ModuleMember -Function New-DestinationEmptyFolder,Copy-FolderContents,Copy-SourceFolderToDestination,Remove-DesignatedFolderContents
