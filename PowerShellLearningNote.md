@@ -592,7 +592,9 @@
          4. $IsMacOS
          5. $IsWindows
          6. $PSBoundParameters - 这个很好，仔细研究
-      
+         7. $switch
+         8. $this
+      - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7)<br>
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
