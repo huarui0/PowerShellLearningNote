@@ -594,7 +594,9 @@
          6. $PSBoundParameters - 这个很好，仔细研究
          7. $switch
          8. $this
-      - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7)<br>
+         9. [Using Enumerators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7#using-enumerators)<br>
+      - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7) - 深入学习<br>
+      - [About Hash Tables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7)<br>
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
