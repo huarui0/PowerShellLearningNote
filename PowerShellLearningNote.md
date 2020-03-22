@@ -579,6 +579,14 @@
             - 位置
                * E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1
          2. 安装 PowerShell 模块
+         3. 删除 PowerShell 模块
+### Advanced functions 专题
+   * 参考
+      - [About Functions Advanced](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-7)<br>
+      - [About Functions Advanced Methods
+](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
+      - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7) - 要仔细研究Function相关的部分内容。。。<br>
+      
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
