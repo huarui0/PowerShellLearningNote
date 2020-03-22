@@ -586,6 +586,12 @@
       - [About Functions Advanced Methods
 ](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
       - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7) - 要仔细研究Function相关的部分内容。。。<br>
+         1. $_
+         2. $args
+         3. $input
+         4. $IsMacOS
+         5. $IsWindows
+         6. $PSBoundParameters - 这个很好，仔细研究
       
 # Linux及MacOS
 ## Bash Shell script
