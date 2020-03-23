@@ -72,6 +72,14 @@
    * 官网参考
       + [Working with Files and Folders](https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders?view=powershell-7.x) - 参考这篇为准<br>
       + [Get-ChildItem](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.x) - 详细学习<br>
+         - 判断文件夹是否为空 或 文件夹含有多少文件和文件夹的方法 - Google Search: powershell get childitem count items
+            * 参考
+               + [Measure-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-object?view=powershell-7.x)<br>
+               + [How to Count Objects in PowerShell](https://www.itechguides.com/powershell-count/)<br>
+               + [How to count the files in a folder using PowerShell, CMD, or File Explorer](https://www.digitalcitizen.life/4-ways-count-number-folders-and-files-inside-folder)<br>
+                - ```bash
+                      $ItemCount = (Get-ChildItem -Path $DesignatedFolder | Measure-Object).Count
+                  ```
       + [Copy-Item](Copy-Item)<br>
       + [New-Item](New-Item)<br>
    * 搜索文件夹及文件的方法
