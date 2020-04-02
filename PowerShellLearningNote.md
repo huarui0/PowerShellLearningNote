@@ -123,7 +123,11 @@
                     }
                 }
             ```
-            
+         - 常用命令参考
+            * 搜索：一个文件夹中，某种类型（*.json)的文件，但排除某个文件夹
+               + ```shell
+                   Get-ChildItem -Path .\AndroidX\*.json  -Recurse | Where-Object FullName -notmatch build >alljson.txt
+                 ```
    * 批量拷贝复制文件和文件夹的操作
       + 参考
          - [How to Copy Folder Structure without Copying the Files](https://www.winhelponline.com/blog/how-to-copy-folder-structure-without-copying-files/)<br>
