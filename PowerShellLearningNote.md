@@ -94,6 +94,8 @@
             2. 使用 -Attributes 'Directory' 也可以不用 '': -Attributes Directory
             ```powershell
                 Get-ChildItem -Path 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Attributes Directory -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
+                # Another 
+                Get-ChildItem -Directory .\ -Recurse | Where-Object -Property name -eq -Value 'openliberty' | ForEach-Object -Parallel {Write-Host $_}
             ```
          - 根据文件类型来搜索文件的方法
             1. 例子来自：[Rename multiple files in multiple folders with PowerShell](https://pantaley.com/blog/Rename-multiple-files-in-multiple-folders-with-PowerShell/)<br>
