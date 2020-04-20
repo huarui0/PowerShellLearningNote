@@ -284,17 +284,6 @@ function Batch_FindandReplace_InTextFile {
 
                             Write-Host "第二层循环_开始1: `$ForceOverride = $ForceOverride"
 
-                            # $SourceFilePath = ($using:OriginalFilePath,$using:FileName) | Join-String -Separator '\'
-
-                            $SourceFilePath = $using:OriginalFilePath,$using:SourceFileName
-                            [string]$SourceFilePath = Join-String -Separator '\' -InputObject $SourceFilePath
-                            Write-Host "第二层循环_开始1: `$SourceFilePath = $SourceFilePath"
-# bug 如果是文件，而不是文件夹，就会出错！！！！！！！！！！！
-                            $DestinationFilePath = $_, $using:SourceFileName
-                            [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
-                            Write-Host "第二层循环_开始1: `$DestinationFilePath = $DestinationFilePath"
-
-
                         # if ($FilePath) { 不用判断这句了！！
 
 
@@ -309,8 +298,18 @@ function Batch_FindandReplace_InTextFile {
                             Write-Host "第二层循环_开始1_进入更改: `$TempFileMode = $TempFileMode"
                             Write-Host "第二层循环_开始1_进入更改: `$using:TempFileMode = $using:TempFileMode"
 
+                            # $SourceFilePath = ($using:OriginalFilePath,$using:FileName) | Join-String -Separator '\'
 
-                            if (Test-Path -Path $_ -PathType 'Leaf') {
+                            $SourceFilePath = $using:OriginalFilePath,$using:SourceFileName
+                            [string]$SourceFilePath = Join-String -Separator '\' -InputObject $SourceFilePath
+                            Write-Host "第二层循环_开始1: `$SourceFilePath = $SourceFilePath"
+
+# bug 如果查找的是文件，$_就是文件，不用加源文件名了
+                            ### 不能放这！！！ $DestinationFilePath = $_, $using:SourceFileName
+                            # [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
+                            Write-Host "第二层循环_开始1_判断`$_是否文件之前: `$DestinationFilePath = $DestinationFilePath"
+
+                            if (Test-Path -Path $_ -PathType 'Leaf') { # 直接指定要更改的文件名，如: gradle-wrapper.properties
                                 # 判断是否是 原始文件拷贝到目标文件方式
                                 Write-Host "第二层循环_开始1_进入更改后: `$using:OriginalFilePath = $using:OriginalFilePath"
                                 Write-Host "第二层循环_开始1_进入更改后Leaf: `$using:TempFileMode = $using:TempFileMode"
@@ -355,10 +354,18 @@ function Batch_FindandReplace_InTextFile {
                                     # 否则 
                                     # 1. 直接更改 目标文件
 
-                                    # 2. 备份原文件，然后更新文件内容
+                                    # 1_1. 备份原文件
+                                    Copy-Item -Path "$DestinationFilePath.tmp" -Destination $_
+                                    # 1_2. 然后更新文件内容
+                                    
                                 }
 
                             } elseif (Test-Path -Path $_ -PathType 'Container') {
+
+                                $DestinationFilePath = $_, $using:SourceFileName
+                                [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
+                                Write-Host "第二层循环_开始1_判断`$_是Container: `$DestinationFilePath = $DestinationFilePath"
+
                                 # 如果目标文件夹存在，但没有文件了，就直接将原文件拷贝到目标文件夹。
                                 Write-Host "第二层循环_直接拷贝到目标文件夹: `$using:FilePath = $using:FilePath"
 
@@ -412,7 +419,7 @@ function Batch_FindandReplace_InTextFile {
                                     } else {
                                         Write-Warning "The file at '$DestinationFilePath' already exists and the -Force param was not used"
                                     }
-                                } else {
+                                } else {   # 这里目标文件已经没有了！！！还是需要从templete处拷贝！！！
                                     # 否则 
                                     # 1. 直接更改 目标文件
 
@@ -499,15 +506,24 @@ function Batch_FindandReplace_InTextFile {
 # Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-4-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
-# 正式 正确
-# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.2-rc-3-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
+# 正式 正确 - 为何导致重复的 结果。。？？
+# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Scripts\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.2-rc-3-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
+# 用于正式环境 - 还是有问题
+# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Scripts\TestFolder' -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\udlocal-Sunshine' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.4-rc-1-all.zip' -Force:$true -TempFileMode:$true -SourceFileName "gradle-wrapper.properties"
 
 
 # 用一个已更新文件覆盖一批文件夹中与原文件内容不一致的相同文件的例子
 # Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip' -Force:$true -TempFileMode:$true
 
 # 更新一批文件夹中相同文件的例子
+# 测试用
+#一批文件夹的例子
+# Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find '^gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip' -Replace 'gradle-6.4-rc-1-all.zip' -Force:$true -TempFileMode:$false -SourceFileName "gradle-wrapper.properties"
+#单个文件夹的例子
+Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolderTmp\udlocal-Sunshine' -FileName "gradle-wrapper.properties" -Find '^gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip' -Replace 'gradle-6.4-rc-1-all.zip' -Force:$true -TempFileMode:$false -SourceFileName "gradle-wrapper.properties"
+
+# 正式
 # Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
 
 # 仅更新一个文件夹中相同文件的例子
@@ -522,7 +538,7 @@ function Batch_FindandReplace_InTextFile {
 # Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
 # Batch_FindandReplace_InTextFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\AndroidX','E:\AppPractice' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip'
 
-Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes','E:\Docs' -FileName "*" -Find 'error-message'
+## Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes','E:\Docs' -FileName "*" -Find 'error-message'
 
 
 

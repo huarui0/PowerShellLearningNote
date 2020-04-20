@@ -46,3 +46,7 @@ Thumbs.db
 # Backup files #
 ######################
 *.bak
+
+# Folder #
+######################
+**/TestFolder/*

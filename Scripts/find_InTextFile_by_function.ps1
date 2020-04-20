@@ -75,4 +75,4 @@ function Find-InTextFile {
 }
 
 # Find-InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip'
-Find-InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX\PureX\gradle\wrapper\gradle-wrapper.properties' -Find 'gradle-[0-9].[0-9]-rc-[0-9]-all.zip' # 'gradle-6.1-rc-1-all.zip'
+Find-InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX\PureX\gradle\wrapper\gradle-wrapper.properties' -Find '^gradle-[0-9].[0-9]-rc-[0-9]-all.zip' # 'gradle-6.1-rc-1-all.zip'

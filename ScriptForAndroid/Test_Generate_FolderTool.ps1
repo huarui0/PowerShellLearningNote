@@ -1,7 +1,55 @@
 ## Script: Test_Generate_FolderTool.ps1
-# 
+#
+<#
+param (
+    [String]$LOG_FILE = 'E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\BatchCopyFolderToDestination.log',
+    [Parameter(Mandatory = $true)]
+    [ValidateScript({Test-Path -Path $_ -PathType 'Container'})]
+    [string]$DistinationParentFolder,
+    [Parameter()]
+    [string]$DistinationFolder, # 在DistinationParentFolder下加NewDistinationFolderName
+    [Parameter()]
+    [string]$NewDistinationFolderName,
+    [Parameter(Mandatory = $true)]
+    [ValidateScript({Test-Path -Path $_ -PathType 'Container'})]
+    [string]$SourceParentFolder,
+    [Parameter()]
+    [ValidateScript({Test-Path -Path $_ -PathType 'Container'})]
+    [string]$SourceFolder,
+    [Parameter()]
+    [string]$SourceFolderName,
+    [Parameter()]
+    [string]$SourceFolderContents,
+    [Parameter(Mandatory = $true)]
+    [ValidateScript({Test-Path -Path $_ -PathType 'Container'})]
+    [string]$TemplateFolder,
+    [Parameter(Mandatory=$false)]
+    [Switch]
+    $isCopyFolderContents,
+    [Parameter(Mandatory=$false)]
+    [Switch]
+    $ForceOverride
+)
 
-Import-Module -Name E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1 -Verbose
+
+"`$DistinationParentFolder is $DistinationParentFolder"
+"`$SourceParentFolder is $SourceParentFolder"
+"`$TemplateFolder is $TemplateFolder"
+"`$isCopyFolderContents is $isCopyFolderContents"
+"`$ForceOverride is $ForceOverride"
+#>
+
+
+
+
+
+
+
+
+
+
+
+# Import-Module -Name E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1 -Verbose
 
 <#
     GetTemplateFolder
@@ -57,7 +105,7 @@ function New-DestinationEmptyFolder {
         try {
             # 如果要拷贝的源文件夹所在的目标父文件夹存在
             if (Test-Path -Path $DistinationParentFolder -PathType 'Container') {
-                
+
                 # $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf -Resolve
                 $SourceFolderName =  Split-Path -Path $SourceFolder -Leaf 
                 $DistinationFolder = Join-String -Separator '\' -InputObject $DistinationParentFolder, $SourceFolderName
@@ -310,15 +358,15 @@ function Copy-SourceFolderToDestination {
 
 
 # 2. 测试 - 将文件夹Copy到ParentFolder下，并更名 - 更名不能直接拷贝文件夹，用 -isCopyFolderContents 的方法 -- 不用也可以，但要有 -NewDistinationFolderName
-# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName "S05.01-Solution-AsyncTaskLoader" -isCopyFolderContents:$true
+# Copy-SourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName "S05.01-Solution-AsyncTaskLoader" -isCopyFolderContents:$true
 
 
 # 测试 - 直接将文件夹Copy到ParentFolder下（不更名），- 正确！
-# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true
+# Copy-SourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true
 # 正式-第二种 - 拷贝内容到文件夹下（不更名），-正确，注意：DistinationParentFolder都是ParentFolder
-# CopySourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true -isCopyFolderContents:$true
+# Copy-SourceFolderToDestination -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src\main" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine\S05.01-Solution-AsyncTaskLoader\app\src" -ForceOverride:$true -isCopyFolderContents:$true
 
-function DeleteDesignatedFolderContents {
+function Remove-DesignatedFolderContents {
     <#
     .SYNOPSIS
         实现：
@@ -473,9 +521,10 @@ function Batch_CopySourceFolderToDestination {
                 # "$using:Find $_"
                 Write-Host "`$SourceParentFolder = $using:SourceParentFolder"
                 Write-Host "`$_ = $_" -ForegroundColor Blue
-
+                
                 $NewDistinationFolderName =  Split-Path -Path $_ -Leaf 
-
+                
+                Write-Host "`@PSBoundParameters = " @PSBoundParameters -ForegroundColor Green
 # 步骤
 # 1. 测试 - 在目的父文件夹下创建空的文件夹
 # CreateDestinationEmptyFolder -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true
@@ -493,7 +542,47 @@ function Batch_CopySourceFolderToDestination {
 
 
 
-Batch_CopySourceFolderToDestination -TemplateFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -SourceParentFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName $NewDistinationFolderName -isCopyFolderContents:$true
+# Batch_CopySourceFolderToDestination -TemplateFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -SourceParentFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName $NewDistinationFolderName -isCopyFolderContents:$true
+
+
+$TemplateFolder = "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX"
+
+$SourceParentFolder = "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine"
+
+$DistinationParentFolder = "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine"
+
+$ForceOverride = $true
+
+
+$isCopyFolderContents = $true
+
+
+Write-Host "`$DistinationParentFolder is $DistinationParentFolder" -ForegroundColor Yellow
+Write-Host "`$SourceParentFolder is $SourceParentFolder" -ForegroundColor Green
+Write-Host "`$TemplateFolder is $TemplateFolder" -ForegroundColor Yellow
+Write-Host "`$isCopyFolderContents is $isCopyFolderContents" -ForegroundColor Green
+Write-Host "`$ForceOverride is $ForceOverride" -ForegroundColor Yellow
+
+
+Get-ChildItem -Path $SourceParentFolder | Where-Object { $_.PSIsContainer -eq $true } | ForEach-Object -Parallel {
+    # "$using:Find $_"
+    Write-Host "`$SourceParentFolder = $using:SourceParentFolder"
+    Write-Host "`$_ = $_" -ForegroundColor Blue
+
+    $NewDistinationFolderName =  Split-Path -Path $_ -Leaf 
+
+    Write-Host "`$NewDistinationFolderName is $NewDistinationFolderName" -ForegroundColor Yellow
+
+# 步骤
+# 1. 测试 - 在目的父文件夹下创建空的文件夹
+# CreateDestinationEmptyFolder -SourceFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine\S05.01-Solution-AsyncTaskLoader" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true
+
+# 2. 测试 - 将文件夹Copy到ParentFolder下，并更名 - 更名不能直接拷贝文件夹，用 -isCopyFolderContents 的方法 -- 不用也可以，但要有 -NewDistinationFolderName
+    Copy-SourceFolderToDestination -TemplateFolder $TemplateFolder -SourceParentFolder $SourceParentFolder -DistinationParentFolder $DistinationParentFolder -ForceOverride:$false -NewDistinationFolderName $NewDistinationFolderName -isCopyFolderContents:$true
+    # 测试的方法：先建一个文件夹，测试，会不会覆盖。结果：必须不会覆盖
+} -ThrottleLimit 4
+
+
 
 function Batch_FindandReplace_InTextFile {
     <#
