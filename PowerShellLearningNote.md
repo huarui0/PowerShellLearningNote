@@ -72,6 +72,14 @@
    * 官网参考
       + [Working with Files and Folders](https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders?view=powershell-7.x) - 参考这篇为准<br>
       + [Get-ChildItem](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.x) - 详细学习<br>
+         - 判断文件夹是否为空 或 文件夹含有多少文件和文件夹的方法 - Google Search: powershell get childitem count items
+            * 参考
+               + [Measure-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-object?view=powershell-7.x)<br>
+               + [How to Count Objects in PowerShell](https://www.itechguides.com/powershell-count/)<br>
+               + [How to count the files in a folder using PowerShell, CMD, or File Explorer](https://www.digitalcitizen.life/4-ways-count-number-folders-and-files-inside-folder)<br>
+                - ```bash
+                      $ItemCount = (Get-ChildItem -Path $DesignatedFolder | Measure-Object).Count
+                  ```
       + [Copy-Item](Copy-Item)<br>
       + [New-Item](New-Item)<br>
    * 搜索文件夹及文件的方法
@@ -86,6 +94,8 @@
             2. 使用 -Attributes 'Directory' 也可以不用 '': -Attributes Directory
             ```powershell
                 Get-ChildItem -Path 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Attributes Directory -Recurse | Where-Object -Property name -eq -Value 'build' | ForEach-Object -Parallel {Write-Host $_}
+                # Another example
+                Get-ChildItem -Directory .\ -Recurse | Where-Object -Property name -eq -Value 'openliberty' | ForEach-Object -Parallel {Write-Host $_}
             ```
          - 根据文件类型来搜索文件的方法
             1. 例子来自：[Rename multiple files in multiple folders with PowerShell](https://pantaley.com/blog/Rename-multiple-files-in-multiple-folders-with-PowerShell/)<br>
@@ -115,13 +125,19 @@
                     }
                 }
             ```
-            
+         - 常用命令参考
+            * 搜索：一个文件夹中，某种类型（*.json)的文件，但排除某个文件夹
+               + ```shell
+                   Get-ChildItem -Path .\AndroidX\*.json  -Recurse | Where-Object FullName -notmatch build >alljson.txt
+                 ```
    * 批量拷贝复制文件和文件夹的操作
       + 参考
          - [How to Copy Folder Structure without Copying the Files](https://www.winhelponline.com/blog/how-to-copy-folder-structure-without-copying-files/)<br>
          - [Copying Directory Structures without Files](https://cects.com/copying-directory-structures-without-files/)<br>
          - [Windows: How to Copy Folder Structure without Copying Files](https://sumtips.com/software/windows-how-to-copy-folder-structure-without-copying-files/)<br>
-         - []()<br>
+         - [Copy-Item: Copying Files like a Boss in PowerShell](https://adamtheautomator.com/copy-item-copying-files-powershell/) - 这篇文章介绍的方法蛮好的，可以参考学习<br>
+         - [The Ultimate Guide to Robocopy](https://adamtheautomator.com/robocopy-the-ultimate/) - Windows系统的大量数据的工具<br>
+            * >Robocopy is one of the most-used command-line utilities to copy large volumes of data in Windows. It's such a popular tool because of how powerful it is. But with all that power comes complexity. In this guide, we're going to break down all that complexity and provide a complete tutorial on using this useful tool.
    * 批量删除文件及文件夹的操作
    * 批量替换文件及文件夹的操作
    * 批量移动文件夹和文件的操作
@@ -577,6 +593,24 @@
             - 位置
                * E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\Modules\Manage-FolderTools.psm1
          2. 安装 PowerShell 模块
+         3. 删除 PowerShell 模块
+### Advanced functions 专题
+   * 参考
+      - [About Functions Advanced](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-7)<br>
+      - [About Functions Advanced Methods
+](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7)<br>
+      - [About Automatic Variables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7) - 要仔细研究Function相关的部分内容。。。<br>
+         1. $_
+         2. $args
+         3. $input
+         4. $IsMacOS
+         5. $IsWindows
+         6. $PSBoundParameters - 这个很好，仔细研究
+         7. $switch
+         8. $this
+         9. [Using Enumerators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7#using-enumerators)<br>
+      - [About Functions Advanced Parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-7) - 深入学习<br>
+      - [About Hash Tables](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7)<br>
 # Linux及MacOS
 ## Bash Shell script
 ### 文件及文件夹操作
