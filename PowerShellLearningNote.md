@@ -619,3 +619,21 @@
    * 批量替换文件及文件夹的操作
    * 批量移动文件夹和文件的操作
    * 批量替换文件内容的操作
+# 临时
+## 正则表达式参考
+   * [regex match nothing at the end of string](https://stackoverflow.com/questions/57454329/regex-match-nothing-at-the-end-of-string)<br>
+      + `^\w*?\.(#+)(\.\w*?)*?$`
+         - This regex matches any number of word characters (including none) in front of one dot, matches one or more octothorpe symbols, and then optionally matches a dot and more words/chars.      
+
+      + ```shell
+      
+              ^\w*?\.(#+)(\.\w*?)*?$
+
+              ^                         anchor to the start of the line
+               \w*?                     get as many word characters as you want, but as few as you need
+                   \.                   match . literally
+                     (#+)               match one or more # literally. grouped for your convenience if you want to count how many times they appear or something.
+                         (      )*?     match zero or more of this group:
+                          \.            a literal dot...
+                            \w*?        ...and zero or more word characters, as few as needed.
+                                   $    ensure the string ends with this group.
