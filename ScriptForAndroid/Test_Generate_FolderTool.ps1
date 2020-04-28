@@ -545,11 +545,14 @@ function Batch_CopySourceFolderToDestination {
 # Batch_CopySourceFolderToDestination -TemplateFolder "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX" -SourceParentFolder "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine" -DistinationParentFolder "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine" -ForceOverride:$true -NewDistinationFolderName $NewDistinationFolderName -isCopyFolderContents:$true
 
 
-$TemplateFolder = "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX"
+$TemplateFolder = "E:\AndroidDev\AndroidStudioProjects\AndroidX\PureY"
+# "E:\AndroidDev\AndroidStudioProjects\Studies_Template\SunShineX"
 
-$SourceParentFolder = "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine"
+$SourceParentFolder = "E:\AndroidDev\AndroidStudioProjects\Examples\Android4.1\WelcomeScreen"
+# "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\ud851-Sunshine"
 
-$DistinationParentFolder = "E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine"
+$DistinationParentFolder = "E:\AndroidDev\AndroidStudioProjects\Examples\Android4.1\WelcomeScreen_local"
+#"E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine"
 
 $ForceOverride = $true
 

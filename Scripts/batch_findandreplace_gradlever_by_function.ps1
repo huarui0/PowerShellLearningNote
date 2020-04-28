@@ -1,17 +1,18 @@
 # https://stackoverflow.com/questions/56621552/passing-powershell-get-childitem-filter-parameter-through-a-string-variable-is-n
 # Passing Powershell Get-ChildItem filter parameter through a string variable is not working
 Function Create-Filter($filter) {    
-    $str = $filter.Split(',') | ForEach-Object {"""*.$($_.Trim())"""}
+    $str = $filter.Split(',') | ForEach-Object { """*.$($_.Trim())""" }
 
     $str = $str -join ', '
     [string]$str
     return
 }
 
-Function WriteToFileMethodOne($FilePath,$LineToWrite = 'Write this to the text file 1') {
+Function WriteToFileMethodOne($FilePath, $LineToWrite = 'Write this to the text file 1') {
     if (Test-Path $FilePath) {
         Add-Content -Path $FilePath -Value $LineToWrite
-    } else {
+    }
+    else {
         return "The file $FilePath does not exist"
     }
 }
@@ -19,7 +20,8 @@ Function WriteToFileMethodOne($FilePath,$LineToWrite = 'Write this to the text f
 Function WriteToFileMethodTwo {
     if (Test-Path $args[0]) {
         Add-Content -Path $args[0] -Value $args[1]
-    } else {
+    }
+    else {
         return "The file $($args[0]) does not exist"
     }
 }
@@ -27,7 +29,7 @@ Function WriteToFileMethodTwo {
 function WriteContentToFileDirectly {
     param (
         [Parameter(Mandatory = $true)]
-        [ValidateScript({Test-Path -Path $_ -PathType 'Leaf'})]
+        [ValidateScript( { Test-Path -Path $_ -PathType 'Leaf' })]
         [string] $FilePath,
         [Parameter(Mandatory = $true)]
         [string] $find,
@@ -48,7 +50,8 @@ function WriteContentToFileDirectly {
         # $find = 'foo'
         # $replace = 'bar'
         (Get-Content -Path $FilePath).replace($find, $replace) | Set-Content -Path $FilePath
-    } else {
+    }
+    else {
         return "The file $FilePath does not exist"
     }
 }
@@ -56,7 +59,7 @@ function WriteContentToFileDirectly {
 function WriteContentToFileByRegX {
     param (
         [Parameter(Mandatory = $true)]
-        [ValidateScript({Test-Path -Path $_ -PathType 'Leaf'})]
+        [ValidateScript( { Test-Path -Path $_ -PathType 'Leaf' })]
         [string] $FilePath,
         [Parameter(Mandatory = $true)]
         [string] $find,
@@ -72,7 +75,8 @@ function WriteContentToFileByRegX {
         $newContent = $content -replace $find, $replace
         $newContent | Set-Content -Path $FilePath
 
-    } else {
+    }
+    else {
         return "The file $FilePath does not exist"
     }
 }
@@ -80,7 +84,7 @@ function WriteContentToFileByRegX {
 function WriteToFileByTempFile {
     param (
         [Parameter(Mandatory = $true)]
-        [ValidateScript({Test-Path -Path $_ -PathType 'Leaf'})]
+        [ValidateScript( { Test-Path -Path $_ -PathType 'Leaf' })]
         [string] $FilePath,
         [Parameter(Mandatory = $true)]
         [string] $find,
@@ -127,7 +131,7 @@ function Batch_FindandReplace_InTextFile {
     [OutputType()]
     param (
         [Parameter(Mandatory = $true)]
-        [ValidateScript({Test-Path -Path $_ -PathType 'Any'})]
+        [ValidateScript( { Test-Path -Path $_ -PathType 'Any' })]
         [string[]]$FilePaths,
         [Parameter()]
         [string]$FilePath,
@@ -138,32 +142,33 @@ function Batch_FindandReplace_InTextFile {
         [Parameter()]
         [string]$Replace,
         [Parameter(ParameterSetName = 'NewFile')]
-        [ValidateScript({ Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
         [string]$OriginalFilePath,
         [Parameter(ParameterSetName = 'NewFile')]
-        [ValidateScript({ Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
         [string]$SourceFilePath,
 
         [Parameter()]
         [string]$TempSourceFilePath,
 
         [Parameter(ParameterSetName = 'NewFile')]
-        [ValidateScript({ Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
         [string]$DestinationFilePath,
-
+        [Parameter()]
+        [string]$DistinationFolder,
         [Parameter()]
         [string]$SourceFileName,
 
         [Parameter(ParameterSetName = 'NewFile')]
         [switch]$Force = $false,
-        [Parameter(Mandatory=$false)]
+        [Parameter(Mandatory = $false)]
         [Switch]
         $ForceOverride,
         [Parameter()]
         [switch]$TempFileMode
     )
     begin {
-        $Find = [regex]::Escape($Find)
+        # $Find = [regex]::Escape($Find)
         # 注：只是 $Find 用正则表达式，$Replace 一定是正确的数据，所以不可能是正则表达表达式
         # $Replace = [regex]::Escape($Replace)
     }
@@ -183,16 +188,17 @@ function Batch_FindandReplace_InTextFile {
             Write-Host $startTime
             Write-Host "`$Replace = $Replace"
 
-            [String]$TempSourceFilePath = Join-String -Separator '\' -InputObject $OriginalFilePath,$SourceFileName
+            [String]$TempSourceFilePath = Join-String -Separator '\' -InputObject $OriginalFilePath, $SourceFileName
             Write-Host "起始位置: `$TempSourceFilePath = $TempSourceFilePath"
-# Break
+            # Break
             ## 特别注意：如果是从源文件拷贝到多个目标文件夹的模式，则需要先处理原文件，待全部处理完毕，则需要将临时文件删除。切记！
             ## --- delete temp file see below-------
             if ($OriginalFilePath) {
                 if ($TempFileMode) {
                     Write-Host ("特别注意：如果是从源文件拷贝到多个目标文件夹的模式，则需要先处理原文件，待全部处理完毕，则需要将临时文件删除。切记！") -ForegroundColor Red
                     (Get-Content $TempSourceFilePath) -Replace $Find, $Replace | Add-Content -Path "$TempSourceFilePath.tmp" -Force
-                } else {
+                }
+                else {
                     # 直接更改源文件
                     (Get-Content $TempSourceFilePath) -Replace $Find, $Replace | Add-Content -Path $TempSourceFilePath -Force  
                 }
@@ -210,7 +216,8 @@ function Batch_FindandReplace_InTextFile {
                 try {
                     if ($Replace) {            
                         Write-Host "`$Replace is not EMPTY"
-                    } else {
+                    }
+                    else {
                         Write-Host "`$Replace is EMPTY or NULL"
                     }
                     Write-Host "第一层循环`$Replace = $Replace"
@@ -228,7 +235,7 @@ function Batch_FindandReplace_InTextFile {
                     Write-Host ("第一个循环`$using:OriginalFilePath = $using:OriginalFilePath")
 
 
-                    if($PSBoundParameters.ContainsKey('ForceMode')) {
+                    if ($PSBoundParameters.ContainsKey('ForceMode')) {
                         # switch parameter was explicitly passed by the caller
                         # grab its value
                         $requestparams.Code = $ForceMode.IsPresent
@@ -270,7 +277,7 @@ function Batch_FindandReplace_InTextFile {
 
                         $FileName = $using:FileName
                         Write-Host ("第一个循环_赋值后：`$FileName = $FileName")
-# Break    
+                        # Break    
                         # 批量更新文件内容
                         # Get-ChildItem -Path $FilePath -Recurse | Where-Object{$_.Name.ToLower().Contains("gradle-wrapper.properties")} | ForEach-Object -Parallel {
                         Get-ChildItem -Path $FilePath -Recurse | Where-Object -Property name -eq -Value $using:FileName | ForEach-Object -Parallel {
@@ -284,7 +291,7 @@ function Batch_FindandReplace_InTextFile {
 
                             Write-Host "第二层循环_开始1: `$ForceOverride = $ForceOverride"
 
-                        # if ($FilePath) { 不用判断这句了！！
+                            # if ($FilePath) { 不用判断这句了！！
 
 
                             # 在本session中重新赋值为上个session的值，特别重要. 但是 重新赋值的无法传递，名称冲突的缘故？
@@ -300,16 +307,30 @@ function Batch_FindandReplace_InTextFile {
 
                             # $SourceFilePath = ($using:OriginalFilePath,$using:FileName) | Join-String -Separator '\'
 
-                            $SourceFilePath = $using:OriginalFilePath,$using:SourceFileName
+                            $SourceFilePath = $using:OriginalFilePath, $using:SourceFileName
                             [string]$SourceFilePath = Join-String -Separator '\' -InputObject $SourceFilePath
                             Write-Host "第二层循环_开始1: `$SourceFilePath = $SourceFilePath"
 
-# bug 如果查找的是文件，$_就是文件，不用加源文件名了
+                            # bug 如果查找的是文件，$_就是文件，不用加源文件名了
                             ### 不能放这！！！ $DestinationFilePath = $_, $using:SourceFileName
                             # [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
                             Write-Host "第二层循环_开始1_判断`$_是否文件之前: `$DestinationFilePath = $DestinationFilePath"
 
-                            if (Test-Path -Path $_ -PathType 'Leaf') { # 直接指定要更改的文件名，如: gradle-wrapper.properties
+
+                            if (Test-Path -Path $_ -PathType 'Container') {
+                                # 如果要处理的是某文件夹下的某文件，则需要转成实际的文件路径；# 直接指定要更改的文件名，如: gradle-wrapper.properties，就用处理
+
+                                $DestinationFilePath = $_, $using:SourceFileName
+                                [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
+                                Write-Host "第二层循环_开始1_判断`$_是Container: `$DestinationFilePath = $DestinationFilePath"
+                            }
+                            else {
+                                $DestinationFilePath = $_
+                            }
+
+                            if (Test-Path -Path $DestinationFilePath -PathType 'Leaf') {
+                                # 要处理的文件存在的情况：
+
                                 # 判断是否是 原始文件拷贝到目标文件方式
                                 Write-Host "第二层循环_开始1_进入更改后: `$using:OriginalFilePath = $using:OriginalFilePath"
                                 Write-Host "第二层循环_开始1_进入更改后Leaf: `$using:TempFileMode = $using:TempFileMode"
@@ -324,7 +345,7 @@ function Batch_FindandReplace_InTextFile {
                                             # Get-Content $SourceFilePath -Find $using:Find -Replace $using:Replace | Add-Content -Path "$SourceFilePath.tmp" -ForceOverride
                                             # ------------------------------ #
 
-                                            Remove-Item -Path $_   # -Force
+                                            Remove-Item -Path $DestinationFilePath   # -Force
                                             # 考虑到其他文件还要用，不能用Move-Item，而要用Copy-Item的方式，待全部处理完后，统一删除临时的文件。
                                             # Move-Item -Path "$using:OriginalFilePath.tmp" -Destination $using:FilePath
 
@@ -332,7 +353,9 @@ function Batch_FindandReplace_InTextFile {
                                             # Copy-Item -Path "$SourceFilePath.tmp" -Destination $_ # 因未用变量赋值$_,所以可以直接用$_, 不能用 $using:FilePath！
 
                                             # 改名需要用下面这句
-                                            Copy-Item -Path "$SourceFilePath.tmp" -Destination $DestinationFilePath
+                                            $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                            # Copy-Item -Path "$SourceFilePath.tmp" -Destination $DestinationFilePath
+                                            Copy-Item -Path "$SourceFilePath.tmp" -Destination $DistinationFolder
 
 
 
@@ -340,103 +363,154 @@ function Batch_FindandReplace_InTextFile {
 
 
 
-                                        } else {
-                                            Write-Host "第二层循环_开始1: `$using:TempFileMode = $using:TempFileMode"
+                                        }
+                                        else {
+                                            Write-Host "第二层循环_开始1_直接拷贝源文件到目标目录下: `$using:TempFileMode = $using:TempFileMode"
+                                            Write-Host "第二层循环_开始1_直接拷贝源文件到目标目录下: `$using:FilePath = $using:FilePath"
+
+                                            # 直接拷贝源文件到目标目录下，需要用下面这句 # 未验证，是否可以
+                                            $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                            Copy-Item -Path "$SourceFilePath" -Destination $DistinationFolder -Force
+
+
+
                                         }
                                         ## ----- 不用了 ----- ##
                                         # Remove-Item -Path $using:FilePath -Force
                                         # (Get-Content $SourceFilePath) -replace $using:Find, $using:Replace | Add-Content -Path $using:FilePath -Force
 
-                                    } else {
+                                    }
+                                    else {
                                         Write-Warning "The file at '$_' already exists and the -Force param was not used"
                                     }
-                                } else {
+                                }
+                                else {
                                     # 否则 
                                     # 1. 直接更改 目标文件
 
                                     # 1_1. 备份原文件
-                                    Copy-Item -Path "$DestinationFilePath.tmp" -Destination $_
+                                    if (Test-Path -Path "$DestinationFilePath.tmp" -PathType 'Any') {
+                                        Remove-Item -Path "$DestinationFilePath.tmp" -Force
+                                    }
+                                    $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                    Copy-Item -Path $DestinationFilePath -Destination "$DestinationFilePath.tmp"
                                     # 1_2. 然后更新文件内容
-                                    
-                                }
 
-                            } elseif (Test-Path -Path $_ -PathType 'Container') {
+                                    # (Get-Content $DestinationFilePath) -replace $using:Find, $using:Replace | Add-Content -Path $DestinationFilePath -Force
 
-                                $DestinationFilePath = $_, $using:SourceFileName
-                                [string]$DestinationFilePath = Join-String -Separator '\' -InputObject $DestinationFilePath
-                                Write-Host "第二层循环_开始1_判断`$_是Container: `$DestinationFilePath = $DestinationFilePath"
+                                    # (Get-Content -Path $DestinationFilePath).replace($using:Find, $using:Replace) | Set-Content -Path $DestinationFilePath
 
-                                # 如果目标文件夹存在，但没有文件了，就直接将原文件拷贝到目标文件夹。
-                                Write-Host "第二层循环_直接拷贝到目标文件夹: `$using:FilePath = $using:FilePath"
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$using:Find = $using:Find" -ForegroundColor Red -BackgroundColor Yellow
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$using:Replace = $using:Replace" -ForegroundColor Red -BackgroundColor Yellow
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$DestinationFilePath = $DestinationFilePath" -ForegroundColor Red -BackgroundColor Yellow
 
-                                Write-Host "第二层循环_直接拷贝到目标文件夹: `$_ = $_"
+                                    $content = Get-Content -Path $DestinationFilePath
+                                    # $newContent = $content -replace "gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip", $using:Replace
+                                    $newContent = $content -replace $using:Find, $using:Replace
+                                    $newContent | Set-Content -Path $DestinationFilePath
 
-                                Write-Host "第二层循环_直接拷贝到目标文件夹: `$SourceFilePath = $SourceFilePath"
 
-                                Write-Host "第二层循环_直接拷贝到目标文件夹: `$SourceFilePath.tmp = $SourceFilePath.tmp"
-
-                                Write-Host "第二层循环_开始1_进入更改后Container: `$DestinationFilePath = $DestinationFilePath" -ForegroundColor Green
-
-                                Write-Host "第二层循环_开始1_进入更改后Container: `$using:TempFileMode = $using:TempFileMode" -ForegroundColor Green
-                               
-                                Write-Host "第二层循环_开始1_进入更改后Container: `$ForceOverride = $ForceOverride" -ForegroundColor Green
-
-                                # 所以要在这里判断目标文件夹是否有文件，如果没有文件，则将源文件拷贝到目标文件夹，这个方法不好，让逻辑复杂了。
-                                if (Test-Path -Path $DestinationFilePath -PathType 'Leaf') {
-                                    Write-Host "第二层循环_开始1_进入更改后Container: 进入$DestinationFilePath..." -ForegroundColor Red
-                                    if ($ForceOverride) {
-                                        Write-Host "第二层循环_开始1_进入更改后Container: 开始删除..." -ForegroundColor Red
-
-                                        Remove-Item -Path $DestinationFilePath -Force
-                                    }
-                                } else {
 
                                 }
 
-                                if ($using:OriginalFilePath) {
-                                    # 用 OriginalFilePath 判断 是否将 OriginalFilePath 中的原文件，拷贝到目标位置
-                                    # 如果是强制覆盖
-                                    Write-Host "第二层循环_开始1_进入更改后Container: 进入`$using:OriginalFilePath..." -ForegroundColor Red
 
-                                    if ($ForceOverride) {
-                                        Write-Host "第二层循环_开始1_进入更改后Container: 进入`$ForceOverride..." -ForegroundColor Yellow
-
-                                        if ($using:TempFileMode) {
-
-                                            Write-Host "第二层循环_开始1_进入更改后,开始更新前Container: 进入`$ForceOverride..." -ForegroundColor Yellow
-
-                                            # 考虑到其他文件还要用，不能用Move-Item，而要用Copy-Item的方式，待全部处理完后，统一删除临时的文件。
-                                            # Move-Item -Path "$SourceFilePath.tmp" -Destination $using:FilePath
-                                            # 这句只能Copy为 .tmp
-                                            # Copy-Item -Path "$SourceFilePath.tmp" -Destination $_ # 因未用变量赋值$_,所以可以直接用$_, 不能用 $using:FilePath！
-
-                                            # 改名需要用下面这句
-                                            Copy-Item -Path "$SourceFilePath.tmp" -Destination $DestinationFilePath
-                                            # Remove-Item -Path "$DestinationFilePath.tmp" -Force
-                                        } else {
-                                            Write-Host "第二层循环_开始1: `$using:TempFileMode = $using:TempFileMode"
-                                        }
-                                    } else {
-                                        Write-Warning "The file at '$DestinationFilePath' already exists and the -Force param was not used"
-                                    }
-                                } else {   # 这里目标文件已经没有了！！！还是需要从templete处拷贝！！！
-                                    # 否则 
-                                    # 1. 直接更改 目标文件
-
-                                    # 2. 备份原文件，然后更新文件内容
-                                }
-
-
-                            } else { 
-                                # 如果是文件夹覆盖（替换），则在这个选项
-
-                                # 将源文件夹 拷贝到目标位置（目标位置没有指定文件夹） - 未测试，有问题？
-                                (Get-Content $using:OriginalFilePath) -replace $using:Find, $using:Replace | Add-Content -Path $using:FilePath -ForceOverride
                             }
+                            else {
+                                # 目标文件或文件夹不存在的情况
+
+                                if (Test-Path -Path $_ -PathType 'Container') {
+                                    # 因为前面已经判断过是Container了，所以是要处理的文件不存在的情况，所以，不管如何，都是将 源文件拷贝到这里来！！！
+
+                                    # 如果目标文件夹存在，但没有文件了，就直接将原文件拷贝到目标文件夹。
+                                    Write-Host "第二层循环_直接拷贝到目标文件夹: `$using:FilePath = $using:FilePath"
+
+                                    Write-Host "第二层循环_直接拷贝到目标文件夹: `$_ = $_"
+
+                                    Write-Host "第二层循环_直接拷贝到目标文件夹: `$SourceFilePath = $SourceFilePath"
+
+                                    Write-Host "第二层循环_直接拷贝到目标文件夹: `$SourceFilePath.tmp = $SourceFilePath.tmp"
+
+                                    Write-Host "第二层循环_开始1_进入更改后Container: `$DestinationFilePath = $DestinationFilePath" -ForegroundColor Green
+
+                                    Write-Host "第二层循环_开始1_进入更改后Container: `$using:TempFileMode = $using:TempFileMode" -ForegroundColor Green
+                                    
+                                    Write-Host "第二层循环_开始1_进入更改后Container: `$ForceOverride = $ForceOverride" -ForegroundColor Green
+
+                                    # 前面已经判断目标文件夹没有文件了。。。，所以只有将源文件拷贝到目标文件夹。。。
+                                    Write-Host "第二层循环_开始1_进入更改后Container: 进入$DestinationFilePath..." -ForegroundColor Red
+                                    # 不用。。。
+                                    if ($ForceOverride) {
+                                        Write-Host "第二层循环_开始1_进入更改后Container: 文件不存在，不用删除操作..." -ForegroundColor Red
+
+                                        # Remove-Item -Path $DestinationFilePath -Force
+                                    }
+
+
+                                    if ($using:OriginalFilePath) {
+                                        # 用 OriginalFilePath 判断 是否将 OriginalFilePath 中的原文件，拷贝到目标位置
+                                        # 如果是强制覆盖
+                                        Write-Host "第二层循环_开始1_进入更改后Container: 进入`$using:OriginalFilePath..." -ForegroundColor Red
+
+                                        if ($ForceOverride) {
+                                            Write-Host "第二层循环_开始1_进入更改后Container: 进入`$ForceOverride..." -ForegroundColor Yellow
+
+                                            if ($using:TempFileMode) {
+
+                                                Write-Host "第二层循环_开始1_进入更改后,开始更新前Container: 进入`$ForceOverride..." -ForegroundColor Yellow
+
+                                                # 考虑到其他文件还要用，不能用Move-Item，而要用Copy-Item的方式，待全部处理完后，统一删除临时的文件。
+                                                # Move-Item -Path "$SourceFilePath.tmp" -Destination $using:FilePath
+                                                # 这句只能Copy为 .tmp
+                                                # Copy-Item -Path "$SourceFilePath.tmp" -Destination $_ # 因未用变量赋值$_,所以可以直接用$_, 不能用 $using:FilePath！
+
+                                                # 改名需要用下面这句
+                                                $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                                Copy-Item -Path "$DestinationFilePath.tmp" -Destination $DistinationFolder
+                                                # Remove-Item -Path "$DestinationFilePath.tmp" -Force
+                                            }
+                                            else {
+                                                Write-Host "第二层循环_开始1: `$using:TempFileMode = $using:TempFileMode"
+                                                # 没有 TempFileMode 也 直接 拷了！！ 因没有文件
+                                                # 改名需要用下面这句
+                                                $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                                Copy-Item -Path "$DestinationFilePath.tmp" -Destination $DistinationFolder
+                                                
+                                            }
+                                        }
+                                        else {
+                                            Write-Warning "The file at '$DestinationFilePath' already exists and the -Force param was not used"
+                                        }
+                                    }
+                                    else {
+                                        # 这里目标文件已经没有了！！！没有指定源文件，无法处理！！！
+                                        Write-Warning "The file at '$DestinationFilePath' not exists and 目标文件已经没有了！！！没有指定源文件，无法处理！！！"
+                                    }
+
+
+                                }
+                                else {
+                                    # 这种情况肯定是指定的文件夹也不存在，。。。 暂不处理了。
+                                    
+                                    # 如果是文件夹覆盖（替换），则在这个选项
+
+                                    # 将源文件夹 拷贝到目标位置（目标位置没有指定文件夹） - 未测试，有问题？
+                                    (Get-Content $using:OriginalFilePath) -replace $using:Find, $using:Replace | Add-Content -Path $using:FilePath -ForceOverride
+
+
+
+
+
+                                }
+
+
+
+                            }
+
 
                         } -ThrottleLimit 4
  
-                    } else {
+                    }
+                    else {
                         # 搜索 文件夹 包含
                         # 搜索 文件 名称包含 文件扩展名
                         # 搜索 文件 内容包含 字符串
@@ -449,7 +523,8 @@ function Batch_FindandReplace_InTextFile {
                         # Select-String，则$FilePath必须为-Leaf，否则无意义
                         if (Test-Path -Path $FilePath -PathType 'Leaf') {
                             Select-String -Path $_ -Pattern "$using:Find"
-                        } else {
+                        }
+                        else {
                             Get-ChildItem -Path $_ -Recurse | Where-Object -Property name -eq -Value $using:FileName | ForEach-Object -Parallel {
                                 # "$using:Find $_"
                                 Write-Host "第二个2循环`$FilePath = $using:FilePath"
@@ -460,7 +535,8 @@ function Batch_FindandReplace_InTextFile {
                         }
                     }
 
-                } catch {
+                }
+                catch {
                     Write-Error $_.Exception.Message
                 }
 
@@ -473,7 +549,8 @@ function Batch_FindandReplace_InTextFile {
                     if (Test-Path -Path "$TempSourceFilePath.tmp" -PathType 'Leaf') {
                         Remove-Item -Path "$TempSourceFilePath.tmp" -Force
                     }
-                } else {
+                }
+                else {
 
                 }
 
@@ -493,7 +570,8 @@ function Batch_FindandReplace_InTextFile {
             "总执行时间:" + $totalTime
             Write-Host "总用时: $newTimeSpan 秒"
             -join ("总用时: ", $newTimeSpan, " 秒!")
-        } catch {
+        }
+        catch {
             Write-Error $_.Exception.Message
         }           
     }
@@ -514,17 +592,33 @@ function Batch_FindandReplace_InTextFile {
 
 
 # 用一个已更新文件覆盖一批文件夹中与原文件内容不一致的相同文件的例子
-# Batch_FindandReplace_InTextFile -OriginalFilePath 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder' -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip' -Force:$true -TempFileMode:$true
+$CurrentOriginalFilePath = "E:\AndroidDev\AndroidStudioProjects\Studies_Template"
+# Batch_FindandReplace_InTextFile -OriginalFilePath $CurrentOriginalFilePath -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "gradle-wrapper.properties" -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip' -Force:$true -TempFileMode:$true
 
 # 更新一批文件夹中相同文件的例子
 # 测试用
 #一批文件夹的例子
 # Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\AndroidX','E:\Notes\4_LearningNotes\PowerShellLearningNote\Script\TestFolder\Practices' -FileName "wrapper" -Find '^gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip' -Replace 'gradle-6.4-rc-1-all.zip' -Force:$true -TempFileMode:$false -SourceFileName "gradle-wrapper.properties"
-#单个文件夹的例子
-Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolderTmp\udlocal-Sunshine' -FileName "gradle-wrapper.properties" -Find '^gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip' -Replace 'gradle-6.4-rc-1-all.zip' -Force:$true -TempFileMode:$false -SourceFileName "gradle-wrapper.properties"
+#单个文件夹的例子 -测试
+# Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellLearningNote\ScriptForAndroid\TestFolder\udlocal-Sunshine' -FileName "gradle-wrapper.properties" -Find "gradle-[0-9]\.[0-9]-rc-[0-9]-(all|bin)\.zip" -Replace "gradle-6.4-rc-1-all.zip" -Force:$true -TempFileMode:$false -SourceFileName "gradle-wrapper.properties"
 
 # 正式
-# Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
+# 测试正则表达式
+#Select-String -Path "E:\AndroidDev\AndroidStudioProjects\Examples\Android4.1\RestApiMVVM\gradle\wrapper\gradle-wrapper.properties" -Pattern "gradle-\d{0,2}\.\d{0,2}(-rc-|.)\d{0,2}-all.zip"
+
+# $CurrentFilePaths = "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\udlocal-Sunshine" # 需要修改
+$CurrentFilePaths = "E:\AndroidDev\AndroidStudioProjects\Examples" # 需要修改
+
+$CurrentFileName = "gradle-wrapper.properties"
+# $CurrentFind = "gradle-\d{0,2}\.\d{0,2}(-rc-|\.)\d{0,2}-(all|bin)\.zip" # 不能包含：gradle-4.4-all.zip
+# 加入：\w*? 表示：...and zero or more word characters, as few as needed.
+$CurrentFind = "gradle-\d{0,2}\.\d{0,2}((-rc-|\.)\d{0,2}|\w*?)-(all|bin)\.zip"
+
+$CurrentReplace = "gradle-6.4-rc-2-all.zip" # 需要修改为新版本号
+
+$CurrentSourceFileName = "gradle-wrapper.properties"
+
+Batch_FindandReplace_InTextFile -FilePaths $CurrentFilePaths -FileName $CurrentFileName -Find $CurrentFind -Replace $CurrentReplace -Force:$true -TempFileMode:$false -SourceFileName $CurrentSourceFileName
 
 # 仅更新一个文件夹中相同文件的例子
 # Batch_FindandReplace_InTextFile -FilePath 'E:\AndroidDev\AndroidStudioProjects\AndroidX' -Find 'gradle-6.1-rc-1-all.zip' -Replace 'gradle-6.1-rc-3-all.zip'
@@ -547,3 +641,262 @@ Batch_FindandReplace_InTextFile -FilePaths 'E:\Notes\4_LearningNotes\PowerShellL
 # $Find
 # Batch_FindandReplace_InTextFile -FilePath $FilePath -Find $Find
 # Batch_FindandReplace_InTextFile -FilePaths 'E:\AndroidDev\AndroidStudioProjects\AndroidX','E:\AppPractice' -FileName "wrapper" -Find 'gradle-6.1-rc-1-all.zip'
+
+
+
+
+
+function Batch_FindandReplace_AndroidItem {
+    <#
+    .SYNOPSIS
+        实现在指定的文件或批量文件（名称相同）中，查找和替换文本的功能。
+    .PARAMETER FilePaths
+        The file path of the text file you'd like to perform a find/replace on.
+    .PARAMETER FilePath
+        The file path of the text file you'd like to perform a find/replace on.
+
+    .PARAMETER FileName
+        The file name of the text file you'd like to perform a find/replace on.
+    .PARAMETER Find
+        The string you'd like to replace.
+    .PARAMETER Replace
+        The string you'd like to replace your 'Find' string with.
+    .PARAMETER NewFilePath
+        If a new file with the replaced the string needs to be created instead of replacing
+        the contents of the existing file use this param to create a new file.
+    .PARAMETER Force
+        If the NewFilePath param is used using this param will overwrite any file that
+        exists in NewFilePath.
+    #>
+    [CmdletBinding(DefaultParameterSetName = 'NewFile')]
+    [OutputType()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( { Test-Path -Path $_ -PathType 'Any' })]
+        [string[]]$FilePaths,
+        [Parameter()]
+        [string]$FilePath,
+        [Parameter(Mandatory = $true)]
+        [string]$FileName,
+        [Parameter(Mandatory = $false)]
+        [string]$Find,
+        [Parameter()]
+        [string]$Replace,
+        [Parameter(ParameterSetName = 'NewFile')]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [string]$OriginalFilePath,
+        [Parameter(ParameterSetName = 'NewFile')]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [string]$SourceFilePath,
+
+        [Parameter()]
+        [string]$TempSourceFilePath,
+
+        [Parameter(ParameterSetName = 'NewFile')]
+        [ValidateScript( { Test-Path -Path ($_ | Split-Path -Parent) -PathType 'Any' })]
+        [string]$DestinationFilePath,
+        [Parameter()]
+        [string]$DistinationFolder,
+        [Parameter()]
+        [string]$SourceFileName,
+        [Parameter(Mandatory = $true)]
+        [string]$ReplaceItemFileName,
+        [Parameter(ParameterSetName = 'NewFile')]
+        [switch]$Force = $false,
+        [Parameter(Mandatory = $false)]
+        [Switch]
+        $ForceOverride,
+        [Parameter()]
+        [switch]$ReplaceMode
+    )
+    begin {
+        # $Find = [regex]::Escape($Find)
+        # 注：只是 $Find 用正则表达式，$Replace 一定是正确的数据，所以不可能是正则表达表达式
+        # $Replace = [regex]::Escape($Replace)
+    }
+
+    process {
+        try {
+
+            $FileEntries = $FilePaths | ForEach-Object -Parallel {
+                Write-Host  "Output: $_"
+                $FilePath = $_
+                Write-Host "第一层循环`$FilePath = $FilePath"
+                # Start-Sleep 1
+                # $FileCount = $FilePaths.Count
+                # $FileCount
+                try {
+
+                    Write-Host "第一层循环`$ReplaceMode = $ReplaceMode"
+                    Write-Host "第一层循环`$using:ReplaceMode = $using:ReplaceMode"
+
+                    if ($PSBoundParameters.ContainsKey('ForceMode')) {
+                        # switch parameter was explicitly passed by the caller
+                        # grab its value
+                        $requestparams.Code = $ForceMode.IsPresent
+                    }
+                    else {
+                        # parameter was absent from the invocation, don't add it to the request 
+                        Write-Host "`$ForceMode is not Present"
+                    }
+
+
+                    Write-Host ("第一个循环`$Force = $Force")
+
+                    Write-Host ("第一个循环`$using:Force = $using:Force")
+
+                    Write-Host "第一层循环`$Force.IsPresent =" ($Force.IsPresent)
+
+                    # Write-Host "第一层循环`$using:Force.IsPresent =" ($using:Force.IsPresent)
+
+                    $Force = $using:Force
+                    Write-Host ("第一个循环_赋值后：`$Force = $Force")
+
+                    # if (($Replace -ne $Find) -and ($Replace -ne $null)) {
+                    if ($using:ReplaceMode) {
+                        Write-Host "开始1"
+
+                        $FileName = $using:FileName
+
+                        $ReplaceItemFileName = $using:ReplaceItemFileName
+
+                        Write-Host ("第一个循环_赋值后：`$FileName = $FileName")
+                        # Break    
+                        # 批量更新文件内容
+                        # Get-ChildItem -Path $FilePath -Include *.java,*.xml -Recurse | Where-Object -Property name -eq -Value $using:FileName | ForEach-Object -Parallel {
+                        Get-ChildItem -File -Path $FilePath -Include *.java, *.xml  -Recurse | Where-Object { $_ -like '*src*' } | ForEach-Object -Parallel {
+
+                            # "$using:Find $_"
+                            Write-Host "第二层循环_开始1: `$using:FilePath = $using:FilePath" # 注意：using: 的用法，表示是上一级的变量
+                            Write-Host "第二层循环_开始1: `$_ = $_"
+
+                            Write-Host "第二层循环_开始1: `$using:FileName = $using:FileName"
+
+                            $ForceOverride = $using:Force
+
+                            Write-Host "第二层循环_开始1: `$ForceOverride = $ForceOverride"
+
+                            $DestinationFilePath = $_
+                            Write-Host "第二层循环_开始1_判断`$_是否文件之前: `$DestinationFilePath = $DestinationFilePath"
+
+
+                            if (Test-Path -Path $DestinationFilePath -PathType 'Leaf') {
+                                # 要处理的文件存在的情况：
+
+                                # 否则 
+                                # 1. 直接更改 目标文件
+
+                                Write-Host "第二层循环_开始1_直接更改 Select `$_ = $_" -ForegroundColor Red
+
+                                # 1_2. 然后更新文件内容
+
+                                Write-Host "the name of `$using:ReplaceItemFileName is: $using:ReplaceItemFileName" -ForegroundColor Yellow -BackgroundColor DarkRed
+                                if (Test-Path -Path $using:ReplaceItemFileName -PathType 'Leaf') { # 如果 $using:ReplaceItemFileName 为空，就用全量表更新
+                                    $CsvObjectArry = Import-Csv "E:\AndroidDev\AndroidStudioProjects\Studies_Template\Android_To_X_All.csv"
+                                }
+                                # $CsvObjectArry = Import-Csv "E:\AndroidDev\AndroidStudioProjects\Studies_Template\Android_To_X_Test.csv"
+
+                                $CsvObjectArry = Import-Csv $using:ReplaceItemFileName
+                                foreach ($object in $CsvObjectArry) {
+                    
+                                    Write-Host "the OldProperties of the object is: " $object.OldProperties ", the NewProperties of the object is: " $object.NewProperties -ForegroundColor $object.ObjectPropertyColor
+                    
+                                    Write-Host "the ObjectPropertyColor of the object is: " $object.ObjectPropertyColor -ForegroundColor $object.ObjectPropertyColor
+
+                                    $Find = $object.OldProperties
+                    
+                                    $Replace = $object.NewProperties
+
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$Find = $Find" -ForegroundColor Red -BackgroundColor Yellow
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$Replace = $Replace" -ForegroundColor Red -BackgroundColor Blue
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$DestinationFilePath = $DestinationFilePath" -ForegroundColor Red -BackgroundColor Yellow
+
+                                    $SelectString = Select-String -Path $_ -Pattern $Find
+                                    Write-Host "第二层循环_开始1_直接更改 Select `$SelectString = $SelectString" -ForegroundColor Green
+                                    Write-Host "第二层循环_开始1_直接更改 目标文件: `$_ = $_" -ForegroundColor Blue
+                                    if (Select-String -Path $_ -Pattern $Find) {
+
+                                        # 1_1. 备份原文件
+                                        if (Test-Path -Path "$DestinationFilePath.tmp" -PathType 'Any') {
+                                            # 不处理
+                                            Remove-Item -Path "$DestinationFilePath.tmp" -Force
+                                        } else {
+                                            # $DistinationFolder = Split-Path -Path $DestinationFilePath
+                                            # Copy-Item -Path $DestinationFilePath -Destination "$DestinationFilePath.tmp"
+                                        }
+
+
+                                        $content = Get-Content -Path $DestinationFilePath
+                                        $newContent = $content -replace $Find, $Replace
+                                        $newContent | Set-Content -Path $DestinationFilePath
+
+                                    }
+
+                                }
+                                # $CsvObjectArry
+
+                            }
+                            else {
+                                # 目标文件或文件夹不存在的情况
+
+                            }
+
+
+                        } -ThrottleLimit 4
+    
+                    }
+                    else {
+                        # 搜索 文件夹 包含
+                        # 搜索 文件 名称包含 文件扩展名
+                        # 搜索 文件 内容包含 字符串
+                        Write-Host "开始2！"
+                        Get-ChildItem -Path $FilePath -Recurse | Where-Object -Property name -eq -Value $using:FileName | ForEach-Object -Parallel {
+                            # "$using:FilePath $_"
+                            Write-Host "第二个1循环`$FilePath = $using:FilePath" # 注意：using: 的用法，表示是上一级的变量
+                            Write-Host $_ -ForegroundColor Green
+                        } -ThrottleLimit 4
+                        # Select-String，则$FilePath必须为-Leaf，否则无意义
+                        if (Test-Path -Path $FilePath -PathType 'Leaf') {
+                            Select-String -Path $_ -Pattern "$using:Find"
+                        }
+                        else {
+                            Get-ChildItem -Path $_ -Recurse | Where-Object -Property name -eq -Value $using:FileName | ForEach-Object -Parallel {
+                                # "$using:Find $_"
+                                Write-Host "第二个2循环`$FilePath = $using:FilePath"
+                                Write-Host $_ -ForegroundColor Blue
+
+                            } -ThrottleLimit 4
+            
+                        }
+                    }
+
+                }
+                catch {
+                    Write-Error $_.Exception.Message
+                }
+
+            }  -ThrottleLimit 4
+
+        }
+        catch {
+            Write-Error $_.Exception.Message
+        }           
+    }
+}
+
+# $TestVarible = Read-Host -Prompt '请：FileName：'
+# Write-Host "请：FileName：: `$TestVarible = $TestVarible" -ForegroundColor Green
+# 正式 - 弃用
+# Batch_FindandReplace_AndroidItem -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\udlocal-Sunshine' -FileName "src" -Force:$true -ReplaceMode:$true
+
+# 正式
+# $CurrentFilePaths = "E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\udlocal-Sunshine" # 需要修改
+$CurrentFilePaths = "E:\AndroidDev\AndroidStudioProjects\AndroidX\PureY\app_crud_mysql" # 需要修改
+$CurrentFileName = "src"
+$CurrentReplaceItemFileName = "E:\AndroidDev\AndroidStudioProjects\Studies_Template\Android_To_X_All.csv"
+
+# Batch_FindandReplace_AndroidItem -FilePaths $CurrentFilePaths -FileName $CurrentFileName -Force:$true -ReplaceMode:$true -ReplaceItemFileName $CurrentReplaceItemFileName
+
+
+# 查询模式
+# Batch_FindandReplace_AndroidItem -FilePaths 'E:\AndroidDev\AndroidStudioProjects\Studies&Practices\01_courses_Code\udlocal-Sunshine' -FileName "src" -Force:$true -ReplaceMode:$true -Find ""

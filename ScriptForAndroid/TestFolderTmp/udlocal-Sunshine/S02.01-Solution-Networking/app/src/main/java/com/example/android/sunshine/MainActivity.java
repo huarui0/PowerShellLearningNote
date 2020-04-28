@@ -17,10 +17,8 @@ package com.example.android.sunshine;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android.sunshine.data.SunshinePreferences;
 import com.example.android.sunshine.utilities.NetworkUtils;
