@@ -130,6 +130,12 @@
                + ```shell
                    Get-ChildItem -Path .\AndroidX\*.json  -Recurse | Where-Object FullName -notmatch build >alljson.txt
                  ```
+            * 常用条件搜索 - multi condition
+               + ```shell
+                     Get-ChildItem -Path "E:\JavaDev" -Recurse -Exclude "wrapper" | Where-Object {$_.extension -eq ".properties" -and $_.fullname -notlike "*wrapper*" -and $_.fullname -notlike "*.metadata*"} | ForEach-Object -Parallel {
+                         Write-Host "`$_.Name = $_" -ForegroundColor DarkYellow
+                     }
+                 ```
    * 批量拷贝复制文件和文件夹的操作
       + 参考
          - [How to Copy Folder Structure without Copying the Files](https://www.winhelponline.com/blog/how-to-copy-folder-structure-without-copying-files/)<br>
