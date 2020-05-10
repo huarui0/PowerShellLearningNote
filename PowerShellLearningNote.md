@@ -129,7 +129,10 @@
             * 条件筛选的一些用法：[PowerShell Basics: Where | Where-Object filter {$_.property -eq statement}](https://www.computerperformance.co.uk/powershell/where/)<br>
             * 搜索：一个文件夹中，某种类型（*.json)的文件，但排除某个文件夹
                + ```shell
-                   Get-ChildItem -Path .\AndroidX\*.json  -Recurse | Where-Object FullName -notmatch build >alljson.txt
+                     Get-ChildItem -Path .\AndroidX\*.json  -Recurse | Where-Object FullName -notmatch build >alljson.txt
+                 ```
+               + ```shell
+                     gci "E:\AppDev" -Filter "*.properties" -recurse
                  ```
             * 常用条件搜索 - multi condition
                + ```shell
