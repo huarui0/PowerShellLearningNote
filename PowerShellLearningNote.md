@@ -155,6 +155,7 @@
          - [Copy-Item: Copying Files like a Boss in PowerShell](https://adamtheautomator.com/copy-item-copying-files-powershell/) - 这篇文章介绍的方法蛮好的，可以参考学习<br>
          - [The Ultimate Guide to Robocopy](https://adamtheautomator.com/robocopy-the-ultimate/) - Windows系统的大量数据的工具<br>
             * >Robocopy is one of the most-used command-line utilities to copy large volumes of data in Windows. It's such a popular tool because of how powerful it is. But with all that power comes complexity. In this guide, we're going to break down all that complexity and provide a complete tutorial on using this useful tool.
+   * 批量查找文件及文件夹的操作
    * 批量删除文件及文件夹的操作
    * 批量替换文件及文件夹的操作
    * 批量移动文件夹和文件的操作
@@ -163,6 +164,7 @@
          - [vbs + PowerShell 对文件批量重命名](https://zhuanlan.zhihu.com/p/76023063)<br>
          - [求助一个批量修改子文件夹中文件名的批处理文件](http://www.bathome.net/thread-53039-1-1.html) - 其中提供的vbs的方法<br>
          - [vbs批量修改文件名](https://blog.csdn.net/u011668104/article/details/52240018)<br>
+   * 批量查找文件内容的操作
    * 批量添加文件内容的操作 - Add-Content 的方法 - 研究：是否可以当中插入内容？
    * 批量替换文件内容的操作
       + Google Search
